@@ -1,0 +1,2 @@
+django
+tailwindcss@3.4.1 postcss autoprefixer
