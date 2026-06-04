@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    font-family: 'Inter', 'Manrope', sans-serif;
+    background-color: #f8faf9;
+    -webkit-font-smoothing: antialiased;
+    color: #2d3433;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.tonal-layer {
+    background: linear-gradient(135deg, #F9FBF9 0%, #E2E8E4 100%);
+}
+
+.glass-panel {
+    background: rgba(249, 251, 249, 0.7);
+    backdrop-filter: blur(12px);
+}
+
+h1, h2, h3, .font-headline {
+    font-family: 'Manrope', sans-serif;
+}
+
+.asymmetric-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .asymmetric-grid {
+        grid-template-columns: 1fr;
+    }
+}
