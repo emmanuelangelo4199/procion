@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Porcion | Restorative Wellness</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+        <link href={ static 'app/src/input.css'} rel="stylesheet">
+        <link rel="icon" href={% static 'image/'%} type="icon-image">
+        <script src="{% static 'app/scripts/scripts.js' %}" defer></script>
+    </head>
+
+    <body class="bg-surface text-on-surface">
+        <!-- TopAppBar -->
+        <header class="fixed top-0 w-full z-50 bg-[#f8faf9]/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(45,52,51,0.05)]">
+            <div class="flex justify-between items-center px-8 h-16 w-full max-w-screen-2xl mx-auto">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold text-primary tracking-tighter font-headline">Porcion</span>
+                </div>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-primary font-semibold border-b-2 border-primary py-1 text-sm font-headline" href="#">Home</a>
+                    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm font-headline" href="#">Research</a>
+                    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm font-headline" href="#">About</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+                        <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                    </button>
+                    <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+                        <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    </button>
+                    <div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-highest">
+                        <img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6u6cDgCihK7YCdwCECxoLTCc8I9S_TpVnrEd92Fg8L2MxOJ4ECjsmovmaJm4jC4xmpPVLW7C81ByjDjzSQn9PrtXFz_a9ohFuULfL9a1LIWLCJ5R80y2L_JLNh4UywGzQoXsAabY0jWSwrLbcSUQ86Ltzt8j9prLTmkq4ErgNrwycYfM8XI3a9x1QDR8mHVYiaJIH2z6UncV84E0Jqj9dR2SPWj1clHhn1irSpgWB3Q28mD--YCOelTwNIBSNK2oqrGHHfZAoOCaf"/>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-surface-container h-[1px] w-full"></div>
+        </header>
+
+        <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="relative min-h-[921px] flex items-center overflow-hidden bg-surface">
+            <div class="asymmetric-grid max-w-screen-2xl mx-auto px-8 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="z-10 py-20">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold mb-8">
+                        <span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span> Developed with love and care for restoration
+                    </div>
+
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.1] tracking-tight mb-8"> Weight management that starts with
+                            <span class="text-primary italic">"Why"</span>
+                    </h1>
+                    <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">Step away from clinical tracking and move toward restorative wellness. 
+                        Porcion helps you understand the emotional roots of eating through gentle behavioral science.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="px-8 py-4 bg-primary text-on-primary rounded-full font-bold text-lg shadow-lg hover:translate-y-[-2px] transition-all duration-300 bg-gradient-to-br from-primary to-primary-dim">
+                            Get Started
+                        </button>
+                        <button class="px-8 py-4 bg-surface-container-lowest text-primary border border-outline-variant/20 rounded-full font-bold text-lg hover:bg-surface-container transition-all">
+                            Learn Our Philosophy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative h-full min-h-[500px] hidden md:block">
+                    <div class="absolute inset-0 bg-primary/5 rounded-[4rem] rotate-3 translate-x-12 translate-y-12"></div>
+                    <div class="absolute inset-0 overflow-hidden rounded-[3rem] shadow-2xl">
+                        <img class="w-full h-full object-cover" data-alt="Calm person practicing mindfulness in a sun-drenched room with soft sage curtains and organic botanical textures in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7LXtkGY76RhzB4xEEaUhbJkOO6xkxt8wFMDCJ_bHN3TKYQOryHW4K9Puw3GZi6sQ7YvlBPNGya2AhUud-rqd02JWDOaom2noi-JowWlwYZ-EHXBg3iGd-x796If1H1axMP2IFgcZjy_brCN31rt5UNZBZ3tuNj995bd4_hCvoHfrK6LKmX315TbjY5SpUOrPpMcOiYoYrLl09fwpLLFqw6sCwuS_4ImOuaLCC4fW0OwGywbt4m6wtskXt9X-kQpZDwXYWdu1W6dWL"/>
+                    </div>
+                    <div class="absolute bottom-12 -left-12 p-6 bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl shadow-xl max-w-[240px]">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Daily Intention</span>
+                        </div>
+                        <p class="text-sm font-medium italic text-on-surface">"I eat to nourish my body and respect my emotions today."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pillars Section (Bento Grid) -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-screen-2xl mx-auto px-8">
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <h2 class="text-4xl font-bold text-on-surface mb-6">Built on Behavioral Pillars</h2>
+                    <p class="text-on-surface-variant">We don't just count calories. We cultivate awareness through a researched-backed framework designed for sustainable life changes.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+                <!-- Pillar 1: Emotion-Food Recognition -->
+                <div class="md:col-span-7 bg-surface-container-lowest rounded-3xl p-10 flex flex-col justify-between overflow-hidden relative group">
+                <div class="z-10">
+                <div class="w-14 h-14 bg-primary-container text-on-primary-container rounded-2xl flex items-center justify-center mb-8">
+                <span class="material-symbols-outlined text-3xl" data-icon="psychology">psychology</span>
+                </div>
+                <h3 class="text-3xl font-bold text-on-surface mb-4">Emotion-Food Recognition</h3>
+                <p class="text-on-surface-variant max-w-md text-lg">Uncover the link between your feelings and your plate. Identify triggers before they become habits.</p>
+                </div>
+                <div class="absolute bottom-0 right-0 w-2/3 h-1/2 opacity-20 group-hover:opacity-30 transition-opacity">
+                <img class="w-full h-full object-cover rounded-tl-full" data-alt="abstract close-up of water ripples and soft light reflecting off a glass surface creating a peaceful meditative pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeay0azCcB6hAEgNl-eNiOMQlHjcXeDDiuLi0B-dXXtWzb8IJKDdjMB8UY68qXk7CMz7LVrLRsdbncjusRuT3sleB825kNNpzQHZvgYs_6hnR0OvoOwgyt1L7tShYFDm2b2JEmMKX5JL4NT2MbkcGUS4Ftr8bk4W01m9ws8Km1LH3cCHCiXUDhHJTvLyQ8EO_nUj5HUm64ZOw20qbSi1Xa5REJL3KyMubDY_6JrViYKlqfuxEIPOS6DFaaYq8zMCL5pZXrculmuGJD"/>
+                </div>
+                </div>
+                <!-- Pillar 2: Micro-Habits -->
+                <div class="md:col-span-5 bg-secondary-container rounded-3xl p-10 flex flex-col items-center text-center justify-center">
+                <div class="w-14 h-14 bg-surface-container-lowest text-secondary rounded-full flex items-center justify-center mb-8 shadow-sm">
+                <span class="material-symbols-outlined text-3xl" data-icon="eco">eco</span>
+                </div>
+                <h3 class="text-2xl font-bold text-on-secondary-container mb-4">Micro-Habits</h3>
+                <p class="text-on-secondary-container/80 mb-8">Change starts small. We focus on 1% shifts that stick for a lifetime.</p>
+                <div class="w-full bg-surface-container-lowest/40 h-2 rounded-full overflow-hidden">
+                <div class="w-1/3 h-full bg-secondary rounded-full"></div>
+                </div>
+                <span class="mt-4 text-xs font-bold text-on-secondary-container uppercase tracking-tighter">Consistency: 12 Day Streak</span>
+                </div>
+                <!-- Pillar 3: Peer Accountability -->
+                <div class="md:col-span-5 bg-tertiary-container rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
+                <div class="absolute inset-0">
+                <img class="w-full h-full object-cover opacity-10" data-alt="A group of diverse friends sitting together in a circle outdoors laughing in soft golden sunset light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6xHigUg9jJrVrygKvLBro-bbZbZ1jk9CCnbuHdwzKTA6EjxESW7VQ6HQTBxIpJumjcTJz1XFTXtxPt_D-f6GAak4blt8awkl4ZjX-yamHpulFzZq-x5Fty6nvRsLZ9TYS0z6rqPclEZtckUr8SbGW2NK5hm0zqHDdNAAwhBjc3oxDh_X26E3KSZrBXs_4Ft3NJ-UoANaygxZasYFSQkdt0PoiRkk-DS6OkZ0SOGSQKIcxzgob0cVtyNFx2VNMue1EULGVHqvaAzqW"/>
+                </div>
+                <div class="z-10">
+                <div class="flex -space-x-3 mb-6">
+                <img alt="peer" class="w-10 h-10 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANzlh69pT64u4_QHhFFtFM36YFNecIosC1voINCIu65AEwYa2rPKpd7z9LnNwg3dz_F9hf78ritW29dVR4R2-jWSJWpXh0HsQaXcETmDMyw_lREsJvcOs6fDiQFFNKAVNp3PArPW8BLbT4lyA3HSJIGYWGNX-DfYvzyuGw63OR5Xb3g1xEFGxgjScLBWloCOogaMMId4UxnekjSUPCYLxm16LM9zAboarhft_h6QEU_TmiMQU0G8agE9hT52PpuVzIFRU1W24-xXVm"/>
+                <img alt="peer" class="w-10 h-10 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCxeg10Bs4cgsCnEjSeBRaPpjz9zZ2XZaDZYE_tJXODSLzbZwmyiF0CWCQRAICgnJFHs9H8cnOIW3TJWLDlpUJi3lp1umWj5zulSBw0rkhBANEkiMVgMqcBUlIVM-fwnMj95pYGewFohKQ9PWtW2J6x1jkIjIFy9VOGxdV7D_VvLyqh1bp-JLSmzKJYRXMKkqBmdJOw7Xo9ERhiB-EtXnRS7_O6gmXfQ7JvL5F9b3T6xPdAfne3yIzFoYEEmEEA6hEIEOlpcbxiwz5"/>
+                <img alt="peer" class="w-10 h-10 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaJg_oTI8tE3ikdWtzXyjKaDgBVgnErX0KZ2_bbED_Gkgp42ORjaJoFiOA8zLGtWU4jJNV74z7KLJ_SmDpJHL4WdEQ7xMT82mCcJ_anllOVxvxgJV1Z2qLut4_wDBsWc9CZzpdqT-IiVy6v8LEo71HFReM1IMBtTPSDj2RRbaRo8mlC7AvVxUga8KhDmmxOWu4b4Wx9l3BQGq2G6bCOjpjG26buu5ZkIpMGKUSB8Rrc9ILZq-PNTDvPLJkskcu7JrMPpxhqUk5sO32"/>
+                <div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-xs font-bold text-on-tertiary-container">+12</div>
+                </div>
+                <h3 class="text-2xl font-bold text-on-tertiary-container mb-2">Peer Accountability</h3>
+                <p class="text-on-tertiary-container/80">You're not alone. Connect with your Circle for support without judgment.</p>
+                </div>
+                </div>
+                <!-- Extra: Research Context -->
+                <div class="md:col-span-7 bg-[#dde4e3] rounded-3xl p-10 flex items-center gap-8">
+                <div class="hidden sm:block w-32 h-32 flex-shrink-0 bg-surface-container-lowest rounded-2xl flex items-center justify-center rotate-3 shadow-sm">
+                <span class="material-symbols-outlined text-5xl text-primary" data-icon="book_2">book_2</span>
+                </div>
+                <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-60">Academic Foundation</span>
+                <h3 class="text-xl font-bold text-on-surface mt-1 mb-2">Developed at UEW</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Our platform is the result of extensive behavioral research at the University of Education, Winneba, focusing on cultural nuances in nutrition and psychology.</p>
+                </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <!-- Journaling CTA -->
+        <section class="py-24 bg-surface overflow-hidden">
+        <div class="max-w-screen-xl mx-auto px-8">
+        <div class="bg-surface-container-high rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
+        <img class="w-full h-full object-cover mix-blend-multiply opacity-20" data-alt="overhead view of a clean desk with a simple open journal fountain pen and a sprig of dried eucalyptus in a ceramic vase" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR2OxMbciQT-JJ5vaZSqZ2uBSoX0XroeRuPys59qRiGQ55bsbJVHslFds89H8eSBAsCztM5cZR0-8b2hmE2AfshNcNUe4Kb3ergW7Yv7jatWpNcT-0k5fCnemGVV4SHsZctgfUMhz0NrHHZzczmPdqdYRXA-VmkKy9Y915XBX2UcASZ9cr2BNO9glK6o4479KGx4DHk9vAz_9Irfe9iS3XNgQ4nntDaxOV3773u5TeUAaAxJboUDsCWp4vPF-f4G6kUdn9HDwZiXlF"/>
+        </div>
+        <div class="relative z-10 max-w-xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-8">Ready to discover your <span class="text-primary italic">Why?</span></h2>
+        <p class="text-lg text-on-surface-variant mb-10">Join thousands of individuals redefining their relationship with food through restorative behavioral changes.</p>
+        <form class="flex flex-col sm:flex-row gap-4">
+        <input class="flex-grow px-6 py-4 rounded-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline-variant" placeholder="Enter your email" type="email"/>
+        <button class="px-10 py-4 bg-primary text-on-primary rounded-full font-bold shadow-lg hover:bg-primary-dim transition-colors whitespace-nowrap">
+                                        Get Started
+                                    </button>
+        </form>
+        <p class="mt-6 text-xs text-on-surface-variant/60 italic">Free to start. No credit card required. Purely behavioral.</p>
+        </div>
+        </div>
+        </div>
+        </section>
+        </main>
+        <footer class="bg-surface-container-lowest pt-20 pb-10">
+        <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div class="md:col-span-1">
+        <span class="text-2xl font-extrabold text-primary tracking-tighter mb-4 block">Porcion</span>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                                Restorative wellness for the modern world. Built on science, driven by empathy.
+                            </p>
+        <div class="flex gap-4">
+        <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="share">share</span>
+        <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="language">language</span>
+        </div>
+        </div>
+        <div>
+        <h4 class="font-bold text-on-surface mb-6">Platform</h4>
+        <ul class="space-y-4 text-sm text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="#">Micro-Habits</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Emotion Logging</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Circles</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Progress Insights</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4 class="font-bold text-on-surface mb-6">Resources</h4>
+        <ul class="space-y-4 text-sm text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="#">UEW Research Papers</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Behavioral Science</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Wellness Journal</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4 class="font-bold text-on-surface mb-6">Contact</h4>
+        <ul class="space-y-4 text-sm text-on-surface-variant">
+        <li>University of Education</li>
+        <li>Winneba, Ghana</li>
+        <li>support@porcion.edu</li>
+        </ul>
+        </div>
+        </div>
+        <div class="pt-8 border-t border-surface-container flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-on-surface-variant">© 2024 Porcion Behavioral Wellness. All rights reserved.</p>
+        <div class="flex gap-8 text-xs text-on-surface-variant">
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+        </div>
+        </div>
+        </div>
+        </footer>
+        <!-- BottomNavBar for Mobile -->
+        <div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl border-t border-surface-container-high z-50 flex justify-around items-center h-16 px-4">
+        <button class="flex flex-col items-center justify-center text-primary">
+        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+        <span class="text-[10px] font-bold mt-1">Home</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-on-surface-variant">
+        <span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+        <span class="text-[10px] font-medium mt-1">Log</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-on-surface-variant">
+        <span class="material-symbols-outlined" data-icon="group">group</span>
+        <span class="text-[10px] font-medium mt-1">Circle</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-on-surface-variant">
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+        <span class="text-[10px] font-medium mt-1">Profile</span>
+        </button>
+        </div>
+    </body>
+</html>
