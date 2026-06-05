@@ -10,8 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 
-        <link href={ static 'app/src/input.css'} rel="stylesheet">
-        <link rel="icon" href={% static 'image/Container.png'%} type="icon-image">
+        <link href="{% static 'app/src/input.css' %}" rel="stylesheet">
+        <link rel="icon" href="{% static 'image/Container.png'%}" type="icon-image">
         <script id="tailwind-config" src="{% static 'app/scripts/scripts.js' %}" defer></script>
     </head>
 
@@ -20,23 +20,23 @@
         <header class="fixed top-0 w-full z-50 bg-[#f8faf9]/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(45,52,51,0.05)]">
             <div class="flex justify-between items-center px-8 h-16 w-full max-w-screen-2xl mx-auto">
                 <div class="flex items-center gap-2">
-                    <span class="text-2xl font-bold text-primary tracking-tighter font-headline">Porcion</span>
+                    <a href="{% url 'home' %}" class="text-2xl font-bold text-primary tracking-tighter font-headline">Porcion</a>
                 </div>
                 <nav class="hidden md:flex items-center gap-8">
-                    <a class="text-primary font-semibold border-b-2 border-primary py-1 text-sm font-headline" href="#">Home</a>
-                    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm font-headline" href="#">Pillars</a>
-                    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm font-headline" href="#">Journal</a>
+                    <a class="text-primary font-semibold border-b-2 border-primary py-1 text-sm font-headline" href="{% url 'home' %}">Home</a>
+                    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm font-headline" href="#pillars">Pillars</a>
+                    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm font-headline" href="#journal">Journal</a>
                 </nav>
                 <div class="flex items-center gap-4">
                     <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
                         <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
                     </button>
-                    <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+                    <a href="{% url 'profile' %}" class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
                         <span class="material-symbols-outlined" data-icon="settings">settings</span>
-                    </button>
-                    <div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-highest">
+                    </a>
+                    <a href="{% url 'profile' %}" class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-highest">
                         <img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6u6cDgCihK7YCdwCECxoLTCc8I9S_TpVnrEd92Fg8L2MxOJ4ECjsmovmaJm4jC4xmpPVLW7C81ByjDjzSQn9PrtXFz_a9ohFuULfL9a1LIWLCJ5R80y2L_JLNh4UywGzQoXsAabY0jWSwrLbcSUQ86Ltzt8j9prLTmkq4ErgNrwycYfM8XI3a9x1QDR8mHVYiaJIH2z6UncV84E0Jqj9dR2SPWj1clHhn1irSpgWB3Q28mD--YCOelTwNIBSNK2oqrGHHfZAoOCaf"/>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="bg-surface-container h-[1px] w-full"></div>
@@ -58,9 +58,9 @@
                             Porcion helps you understand the emotional roots of eating through gentle behavioral science.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <button class="px-8 py-4 bg-primary text-on-primary rounded-full font-bold text-lg shadow-lg hover:translate-y-[-2px] transition-all duration-300 bg-gradient-to-br from-primary to-primary-dim">
+                            <a href="{% url 'signup' %}" class="px-8 py-4 bg-primary text-on-primary rounded-full font-bold text-lg shadow-lg hover:translate-y-[-2px] transition-all duration-300 bg-gradient-to-br from-primary to-primary-dim">
                                Start your Journey
-                            </button>
+                            </a>
                             <button class="px-8 py-4 bg-surface-container-lowest text-primary border border-outline-variant/20 rounded-full font-bold text-lg hover:bg-surface-container transition-all">
                                 <a href="#philosophy">Learn Our Philosophy</a>
                                 
@@ -84,7 +84,7 @@
                 </div>
             </section>
             <!-- Pillars Section (Bento Grid) -->
-            <section class="py-24 bg-surface-container-low">
+            <section id="pillars" class="py-24 bg-surface-container-low">
                 <div class="max-w-screen-2xl mx-auto px-8">
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <h2 class="text-4xl font-bold text-on-surface mb-6">Built on Three Behavioral Pillars</h2>
@@ -165,7 +165,7 @@
             </section>
 
             <!-- Journaling CTA -->
-            <section class="py-24 bg-surface overflow-hidden">
+            <section id="journal" class="py-24 bg-surface overflow-hidden">
                 <div class="max-w-screen-xl mx-auto px-8">
                     <div class="bg-surface-container-high rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
@@ -174,9 +174,9 @@
                     <div class="relative z-10 max-w-xl">
                     <h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-8">Ready to discover your <span class="text-primary italic">Why?</span></h2>
                     <p class="text-lg text-on-surface-variant mb-10">Join thousands of individuals redefining their relationship with food through restorative behavioral changes.</p>
-                    <form class="flex flex-col sm:flex-row gap-4">
+                    <form class="flex flex-col sm:flex-row gap-4" action="{% url 'signup' %}" method="get">
                     <input class="flex-grow px-6 py-4 rounded-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline-variant" placeholder="Enter your email" type="email"/>
-                    <button class="px-10 py-4 bg-primary text-on-primary rounded-full font-bold shadow-lg hover:bg-primary-dim transition-colors whitespace-nowrap">
+                    <button type="submit" class="px-10 py-4 bg-primary text-on-primary rounded-full font-bold shadow-lg hover:bg-primary-dim transition-colors whitespace-nowrap">
                         Get Started
                     </button>
                     </form>
@@ -203,10 +203,10 @@
                 <div>
                     <h4 class="font-bold text-on-surface mb-6">Platform</h4>
                     <ul class="space-y-4 text-sm text-on-surface-variant">
-                    <li><a class="hover:text-primary transition-colors" href="#">Micro-Habits</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Emotion Logging</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Circles</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Progress Insights</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'dashboard' %}">Micro-Habits</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'journal' %}">Emotion Logging</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'circle' %}">Circles</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'insights' %}">Progress Insights</a></li>
                     </ul>
                 </div>
                 <div>
@@ -238,22 +238,22 @@
         </footer>
         <!-- BottomNavBar for Mobile -->
         <div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl border-t border-surface-container-high z-50 flex justify-around items-center h-16 px-4">
-            <button class="flex flex-col items-center justify-center text-primary">
+            <a href="{% url 'home' %}" class="flex flex-col items-center justify-center text-primary">
                 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                 <span class="text-[10px] font-bold mt-1">Home</span>
-            </button>
-            <button class="flex flex-col items-center justify-center text-on-surface-variant">
+            </a>
+            <a href="{% url 'journal' %}" class="flex flex-col items-center justify-center text-on-surface-variant">
                 <span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
                 <span class="text-[10px] font-medium mt-1">Log</span>
-            </button>
-            <button class="flex flex-col items-center justify-center text-on-surface-variant">
+            </a>
+            <a href="{% url 'circle' %}" class="flex flex-col items-center justify-center text-on-surface-variant">
                 <span class="material-symbols-outlined" data-icon="group">group</span>
                 <span class="text-[10px] font-medium mt-1">Circle</span>
-            </button>
-            <button class="flex flex-col items-center justify-center text-on-surface-variant">
+            </a>
+            <a href="{% url 'profile' %}" class="flex flex-col items-center justify-center text-on-surface-variant">
                 <span class="material-symbols-outlined" data-icon="person">person</span>
                 <span class="text-[10px] font-medium mt-1">Profile</span>
-            </button>
+            </a>
         </div>
     </body>
 </html>
