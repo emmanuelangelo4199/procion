@@ -1,255 +1,219 @@
 {% load static %}
 <!DOCTYPE html>
 <html class="light" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Porcion | Restorative Wellness Dashboard</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href={ static 'app/src/input.css'} rel="stylesheet">
-<link rel="icon" href={% static 'image/Container.png'%} type="icon-image">
-<script id="tailwind-config" src="{% static 'app/scripts/scripts.js' %}" defer></script>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Porcion | Restorative Wellness Dashboard</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="{% static 'app/src/input.css' %}" rel="stylesheet">
+        <link rel="icon" href="{% static 'image/Container.png' %}" type="icon-image">
+        <script id="tailwind-config" src="{% static 'app/scripts/scripts.js' %}" defer></script>
+    </head>
 
-<script id="tailwind-config" src="{% static 'app/scripts/scripts.js' %}" defer></script>
-</head>
-<body class="bg-background text-on-surface">
-<!-- Desktop Side Navigation -->
-<aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-sanctuary-white border-r border-soft-sage py-8 px-6 z-40">
-<div class="mb-12">
-<h1 class="font-display-lg text-headline-sm text-deep-forest italic">Porcion</h1>
-</div>
-<div class="mb-10">
-<p class="font-label-md text-label-md text-earth-gray uppercase mb-4 tracking-widest">Navigation</p>
-<nav class="space-y-2">
-<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-deep-forest font-bold border-b-2 border-deep-forest transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
-<span class="font-label-md text-label-md">Journal</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="insights">insights</span>
-<span class="font-label-md text-label-md">Insights</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
-<span class="font-label-md text-label-md">Habits</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="groups">groups</span>
-<span class="font-label-md text-label-md">Peer Circle</span>
-</a>
-</nav>
-</div>
-<div class="mt-auto space-y-2">
-<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-label-md text-label-md">Settings</span>
-</a>
-<div class="pt-6 border-t border-soft-sage">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-seafoam-mist flex items-center justify-center text-deep-forest font-bold">S</div>
-<div>
-<p class="font-label-md text-label-md text-deep-forest">Sarah Miller</p>
-<p class="text-[10px] text-earth-gray">Pro Member</p>
-</div>
-</div>
-</div>
-</div>
-</aside>
-<!-- Top AppBar (Mobile/Tablet) -->
-<header class="md:hidden fixed top-0 w-full z-50 bg-sanctuary-white/90 backdrop-blur-md border-b border-soft-sage flex justify-between items-center h-16 px-5">
-<h1 class="font-display-lg-mobile text-display-lg-mobile text-deep-forest italic">Porcion</h1>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-deep-forest" data-icon="notifications">notifications</span>
-<span class="material-symbols-outlined text-deep-forest" data-icon="account_circle">account_circle</span>
-</div>
-</header>
-<!-- Main Content -->
-<main class="md:ml-64 min-h-screen pt-24 md:pt-16 pb-24 md:pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
-<!-- Welcome Section -->
-<section class="mb-12">
-<h2 class="font-headline-md text-headline-md text-deep-forest mb-2">Good morning, Sarah.</h2>
-<p class="font-body-lg text-body-lg text-earth-gray">Take a deep breath. Your sanctuary is ready for you today.</p>
-</section>
-<!-- Bento Grid Layout -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Pattern Insight (Large Card) -->
-<div class="lg:col-span-8 group">
-<div class="h-full bg-sanctuary-white border border-soft-sage rounded-[32px] p-8 transition-all duration-300 hover:bg-surface-container-low overflow-hidden relative">
-<div class="flex flex-col md:flex-row gap-8 items-center">
-<div class="w-full md:w-1/2 space-y-4">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-seafoam-mist/30 text-deep-forest">
-<span class="material-symbols-outlined text-sm" data-icon="flare">flare</span>
-<span class="text-[10px] font-bold uppercase tracking-widest">Weekly Observation</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-deep-forest">Pattern Insight</h3>
-<p class="font-body-md text-body-md text-earth-gray">We noticed a gentle correlation: your stress levels tend to soften on days you log a "Morning Tea" ritual. It seems these quiet moments of warmth are a powerful emotional anchor for you.</p>
-<button class="mt-4 px-6 py-2.5 rounded-full border border-deep-forest text-deep-forest font-label-md text-label-md hover:bg-deep-forest hover:text-white transition-all duration-300">
-    View Full Analysis
-</button>
-</div>
-<div class="w-full md:w-1/2">
-<img class="rounded-2xl w-full h-48 object-cover border border-soft-sage" data-alt="A serene, minimalist flat-lay of a ceramic tea cup on a light wooden table next to a sprig of dried eucalyptus. The lighting is soft and ethereal, capturing a morning atmosphere with high-key whites and subtle sage greens. The aesthetic is clean, restorative, and sophisticated, emphasizing a calm wellness lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6ZuIsz2dG1zeEsyzZO_tyzitj2DvRh-FG-fmP8rPe3Xj9t-EjJ5Z68l_C6xF-5p4PlEBD9a7EK-FCXMAd_kCYnjn6uq0iu7AXUFKS70m6oQA-j_0_5fJKE2A91zUEAk8nftiAno1fy876JsOKmJFBsND5DOHcZon6Wup6yl9wFTyCvcMv-i4naaFO580n8uDDcH4odBa3UemYOygeSA40RpHN7MUP9utAN-Rav_UehyOvS0WziKQ0E2-DuO-ruiIJQeQXkZH60hpy"/>
-</div>
-</div>
-</div>
-</div>
-<!-- Daily Rituals (Checklist) -->
-<div class="lg:col-span-4">
-<div class="h-full bg-soft-sage/30 border border-soft-sage rounded-[32px] p-8">
-<div class="flex justify-between items-center mb-6">
-<h3 class="font-label-md text-label-md text-deep-forest uppercase tracking-widest">Daily Rituals</h3>
-<span class="text-caption font-caption text-earth-gray">2/5 Done</span>
-</div>
-<ul class="space-y-4">
-<li class="flex items-center gap-4 group cursor-pointer">
-<div class="w-6 h-6 rounded-full border-2 border-seafoam-mist flex items-center justify-center bg-seafoam-mist text-deep-forest">
-<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check</span>
-</div>
-<span class="font-body-md text-body-md text-earth-gray line-through opacity-60">Morning stretch</span>
-</li>
-<li class="flex items-center gap-4 group cursor-pointer">
-<div class="w-6 h-6 rounded-full border-2 border-seafoam-mist flex items-center justify-center bg-seafoam-mist text-deep-forest">
-<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check</span>
-</div>
-<span class="font-body-md text-body-md text-earth-gray line-through opacity-60">Log breakfast mood</span>
-</li>
-<li class="flex items-center gap-4 group cursor-pointer">
-<div class="w-6 h-6 rounded-full border-2 border-earth-gray/30 flex items-center justify-center group-hover:border-deep-forest transition-colors"></div>
-<span class="font-body-md text-body-md text-deep-forest">Mindful hydration</span>
-</li>
-<li class="flex items-center gap-4 group cursor-pointer">
-<div class="w-6 h-6 rounded-full border-2 border-earth-gray/30 flex items-center justify-center group-hover:border-deep-forest transition-colors"></div>
-<span class="font-body-md text-body-md text-deep-forest">10-minute breathwork</span>
-</li>
-<li class="flex items-center gap-4 group cursor-pointer">
-<div class="w-6 h-6 rounded-full border-2 border-earth-gray/30 flex items-center justify-center group-hover:border-deep-forest transition-colors"></div>
-<span class="font-body-md text-body-md text-deep-forest">Evening gratitude</span>
-</li>
-</ul>
-</div>
-</div>
-<!-- Quick Actions & Stats -->
-<div class="lg:col-span-4">
-<div class="bg-deep-forest rounded-[32px] p-8 text-white flex flex-col justify-between min-h-[240px]">
-<div>
-<p class="text-label-md font-label-md opacity-70 mb-2">Feeling reflective?</p>
-<h3 class="text-headline-sm font-headline-sm mb-4">Start a new log entry</h3>
-</div>
-<button class="w-full bg-sanctuary-white text-deep-forest py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
-<span class="material-symbols-outlined" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
-                        Quick Log
-                    </button>
-</div>
-</div>
-<!-- Community Card -->
-<div class="lg:col-span-8">
-<div class="h-full bg-sanctuary-white border border-soft-sage rounded-[32px] p-8 flex flex-col md:flex-row gap-8">
-<div class="flex-1">
-<p class="font-label-md text-label-md text-earth-gray uppercase tracking-widest mb-2">Peer Circle</p>
-<h3 class="font-headline-sm text-headline-sm text-deep-forest mb-4">You're not alone.</h3>
-<p class="font-body-md text-body-md text-earth-gray mb-6">3 members of your circle also logged a peaceful morning today. Would you like to share a silent nod of support?</p>
-<div class="flex -space-x-3 mb-6">
-<div class="w-10 h-10 rounded-full border-2 border-white bg-soft-sage flex items-center justify-center text-xs">AM</div>
-<div class="w-10 h-10 rounded-full border-2 border-white bg-seafoam-mist flex items-center justify-center text-xs">RK</div>
-<div class="w-10 h-10 rounded-full border-2 border-white bg-earth-gray text-white flex items-center justify-center text-xs">JL</div>
-<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container flex items-center justify-center text-xs text-earth-gray">+12</div>
-</div>
-<button class="text-deep-forest font-bold flex items-center gap-2 hover:underline">
-                            Join the Conversation
-                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-<div class="hidden md:block w-48 shrink-0">
-<img class="rounded-2xl h-full w-full object-cover grayscale opacity-50" data-alt="A soft-focus, minimalist image of three people sitting in a circle on woven floor mats in a bright, sunlit room with large windows. The mood is peaceful and collaborative, with a focus on human connection and calm community. The color palette is dominated by creams, soft greens, and warm wood tones, reflecting a restorative wellness environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa8Qv1VOl2w0XSxDmZkiCILd5NACheJsjoXDHTct5Jc7sFq1bBmXTghudFzJGbfa5Voilke1JTges0kI4jdZcdKaMP0H_Vr-5seMrIsFNYzZfiJT-1nQFTWszdtN9WqYBfeZRfwkZXaKMfL6_h7EBIuWie_NvniSjxIdyUQtbAODg-IVNYqfWCBNm6ZcX44QSb0CV_4Jzck9iNqJYhQKx5NhM99WsDNzU2K-DrCSlTCGHbatHAySJ7FlIx72PzxDk1GiMvzS9Xh2ol"/>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Bottom Navigation (Mobile Only) -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-sanctuary-white/90 backdrop-blur-md border-t border-soft-sage z-50">
-<a class="flex flex-col items-center justify-center bg-seafoam-mist/40 text-deep-forest rounded-xl px-4 py-1" href="#">
-<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
-<span class="font-caption text-caption">Home</span>
-</a>
-<a class="flex flex-col items-center justify-center text-earth-gray" href="#">
-<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
-<span class="font-caption text-caption">Log</span>
-</a>
-<a class="flex flex-col items-center justify-center text-earth-gray" href="#">
-<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
-<span class="font-caption text-caption">Insights</span>
-</a>
-<a class="flex flex-col items-center justify-center text-earth-gray" href="#">
-<span class="material-symbols-outlined" data-icon="group">group</span>
-<span class="font-caption text-caption">Circle</span>
-</a>
-</nav>
-<!-- Footer -->
-<footer class="md:ml-64 border-t border-soft-sage py-12 bg-sanctuary-white">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto gap-4">
-<div class="flex flex-col items-center md:items-start">
-<span class="font-label-md text-label-md text-deep-forest font-bold mb-1">Porcion</span>
-<p class="font-caption text-caption text-earth-gray">© 2024 Porcion. Restorative Wellness.</p>
-</div>
-<div class="flex gap-6">
-<a class="font-caption text-caption text-earth-gray hover:text-deep-forest underline" href="#">Privacy Policy</a>
-<a class="font-caption text-caption text-earth-gray hover:text-deep-forest underline" href="#">Terms of Service</a>
-<a class="font-caption text-caption text-earth-gray hover:text-deep-forest underline" href="#">Support</a>
-</div>
-</div>
-</footer>
-<script>
-        // Micro-interactions for micro-habits checklist
-        document.querySelectorAll('ul li').forEach(item => {
-            item.addEventListener('click', function() {
-                const circle = this.querySelector('div');
-                const text = this.querySelector('span');
-                const iconSpan = document.createElement('span');
-                
-                if (circle.innerHTML === '') {
-                    circle.classList.remove('border-earth-gray/30');
-                    circle.classList.add('border-seafoam-mist', 'bg-seafoam-mist', 'text-deep-forest');
-                    iconSpan.className = 'material-symbols-outlined text-xs';
-                    iconSpan.textContent = 'check';
-                    iconSpan.style.fontVariationSettings = "'FILL' 1";
-                    circle.appendChild(iconSpan);
-                    text.classList.add('line-through', 'opacity-60');
-                } else {
-                    circle.innerHTML = '';
-                    circle.classList.remove('border-seafoam-mist', 'bg-seafoam-mist', 'text-deep-forest');
-                    circle.classList.add('border-earth-gray/30');
-                    text.classList.remove('line-through', 'opacity-60');
-                }
-            });
-        });
+    <body class="bg-background text-on-surface">
+        <!-- Desktop Side Navigation -->
+        <aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-sanctuary-white border-r border-soft-sage py-8 px-6 z-40">
+            <div class="mb-12">
+                <h1 class="font-display-lg text-headline-sm text-deep-forest italic">Porcion</h1>
+            </div>
+            <div class="mb-10">
+                <p class="font-label-md text-label-md text-earth-gray uppercase mb-4 tracking-widest">Navigation</p>
+                <nav class="space-y-2">
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-deep-forest font-bold border-b-2 border-deep-forest transition-all duration-300" href="#">
+                        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        <span class="font-label-md text-label-md">Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
+                        <span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+                        <span class="font-label-md text-label-md">Journal</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
+                        <span class="material-symbols-outlined" data-icon="insights">insights</span>
+                        <span class="font-label-md text-label-md">Insights</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
+                        <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                        <span class="font-label-md text-label-md">Habits</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
+                        <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                        <span class="font-label-md text-label-md">Peer Circle</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="mt-auto space-y-2">
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="#">
+                    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    <span class="font-label-md text-label-md">Settings</span>
+                </a>
+                <div class="pt-6 border-t border-soft-sage">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-seafoam-mist flex items-center justify-center text-deep-forest font-bold">S</div>
+                        <div>
+                            <p class="font-label-md text-label-md text-deep-forest">Sarah Miller</p>
+                            <p class="text-[10px] text-earth-gray">Pro Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
 
-        // Atmospheric touch: Fade in elements on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
+        <!-- Top AppBar (Mobile/Tablet) -->
+        <header class="md:hidden fixed top-0 w-full z-50 bg-sanctuary-white/90 backdrop-blur-md border-b border-soft-sage flex justify-between items-center h-16 px-5">
+            <h1 class="font-display-lg-mobile text-display-lg-mobile text-deep-forest italic">Porcion</h1>
+            <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-deep-forest" data-icon="notifications">notifications</span>
+                <span class="material-symbols-outlined text-deep-forest" data-icon="account_circle">account_circle</span>
+            </div>
+        </header>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-4');
-                }
-            });
-        }, observerOptions);
+        <!-- Main Content -->
+        <main class="md:ml-64 min-h-screen pt-24 md:pt-16 pb-24 md:pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+            <!-- Welcome Section -->
+            <section class="mb-12">
+                <h2 class="font-headline-md text-headline-md text-deep-forest mb-2">Good morning, Sarah.</h2>
+                <p class="font-body-lg text-body-lg text-earth-gray">Take a deep breath. Your sanctuary is ready for you today.</p>
+            </section>
 
-        document.querySelectorAll('section, div.lg\\:col-span-8, div.lg\\:col-span-4').forEach(el => {
-            el.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-4');
-            observer.observe(el);
-        });
-    </script>
-</body>
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                <!-- Pattern Insight (Large Card) -->
+                <div class="lg:col-span-8 group">
+                    <div class="h-full bg-sanctuary-white border border-soft-sage rounded-[32px] p-8 transition-all duration-300 hover:bg-surface-container-low overflow-hidden relative">
+                        <div class="flex flex-col md:flex-row gap-8 items-center">
+                            <div class="w-full md:w-1/2 space-y-4">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-seafoam-mist/30 text-deep-forest">
+                                    <span class="material-symbols-outlined text-sm" data-icon="flare">flare</span>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest">Weekly Observation</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-deep-forest">Pattern Insight</h3>
+                                <p class="font-body-md text-body-md text-earth-gray">We noticed a gentle correlation: your stress levels tend to soften on days you log a "Morning Tea" ritual. It seems these quiet moments of warmth are a powerful emotional anchor for you.</p>
+                                <button class="mt-4 px-6 py-2.5 rounded-full border border-deep-forest text-deep-forest font-label-md text-label-md hover:bg-deep-forest hover:text-white transition-all duration-300">
+                                    View Full Analysis
+                                </button>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <img class="rounded-2xl w-full h-48 object-cover border border-soft-sage" data-alt="A serene, minimalist flat-lay of a ceramic tea cup on a light wooden table next to a sprig of dried eucalyptus. The lighting is soft and ethereal, capturing a morning atmosphere with high-key whites and subtle sage greens. The aesthetic is clean, restorative, and sophisticated, emphasizing a calm wellness lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6ZuIsz2dG1zeEsyzZO_tyzitj2DvRh-FG-fmP8rPe3Xj9t-EjJ5Z68l_C6xF-5p4PlEBD9a7EK-FCXMAd_kCYnjn6uq0iu7AXUFKS70m6oQA-j_0_5fJKE2A91zUEAk8nftiAno1fy876JsOKmJFBsND5DOHcZon6Wup6yl9wFTyCvcMv-i4naaFO580n8uDDcH4odBa3UemYOygeSA40RpHN7MUP9utAN-Rav_UehyOvS0WziKQ0E2-DuO-ruiIJQeQXkZH60hpy"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Daily Rituals (Checklist) -->
+                <div class="lg:col-span-4">
+                    <div class="h-full bg-soft-sage/30 border border-soft-sage rounded-[32px] p-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-label-md text-label-md text-deep-forest uppercase tracking-widest">Daily Rituals</h3>
+                            <span class="text-caption font-caption text-earth-gray">2/5 Done</span>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-6 h-6 rounded-full border-2 border-seafoam-mist flex items-center justify-center bg-seafoam-mist text-deep-forest">
+                                    <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check</span>
+                                </div>
+                                <span class="font-body-md text-body-md text-earth-gray line-through opacity-60">Morning stretch</span>
+                            </li>
+                            <li class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-6 h-6 rounded-full border-2 border-seafoam-mist flex items-center justify-center bg-seafoam-mist text-deep-forest">
+                                    <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check</span>
+                                </div>
+                                <span class="font-body-md text-body-md text-earth-gray line-through opacity-60">Log breakfast mood</span>
+                            </li>
+                            <li class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-6 h-6 rounded-full border-2 border-earth-gray/30 flex items-center justify-center group-hover:border-deep-forest transition-colors"></div>
+                                <span class="font-body-md text-body-md text-deep-forest">Mindful hydration</span>
+                            </li>
+                            <li class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-6 h-6 rounded-full border-2 border-earth-gray/30 flex items-center justify-center group-hover:border-deep-forest transition-colors"></div>
+                                <span class="font-body-md text-body-md text-deep-forest">10-minute breathwork</span>
+                            </li>
+                            <li class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-6 h-6 rounded-full border-2 border-earth-gray/30 flex items-center justify-center group-hover:border-deep-forest transition-colors"></div>
+                                <span class="font-body-md text-body-md text-deep-forest">Evening gratitude</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Actions & Stats -->
+                <div class="lg:col-span-4">
+                    <div class="bg-deep-forest rounded-[32px] p-8 text-white flex flex-col justify-between min-h-[240px]">
+                        <div>
+                            <p class="text-label-md font-label-md opacity-70 mb-2">Feeling reflective?</p>
+                            <h3 class="text-headline-sm font-headline-sm mb-4">Start a new log entry</h3>
+                        </div>
+                        <button class="w-full bg-sanctuary-white text-deep-forest py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+                            <span class="material-symbols-outlined" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                            Quick Log
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Community Card -->
+                <div class="lg:col-span-8">
+                    <div class="h-full bg-sanctuary-white border border-soft-sage rounded-[32px] p-8 flex flex-col md:flex-row gap-8">
+                        <div class="flex-1">
+                            <p class="font-label-md text-label-md text-earth-gray uppercase tracking-widest mb-2">Peer Circle</p>
+                            <h3 class="font-headline-sm text-headline-sm text-deep-forest mb-4">You're not alone.</h3>
+                            <p class="font-body-md text-body-md text-earth-gray mb-6">3 members of your circle also logged a peaceful morning today. Would you like to share a silent nod of support?</p>
+                            <div class="flex -space-x-3 mb-6">
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-soft-sage flex items-center justify-center text-xs">AM</div>
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-seafoam-mist flex items-center justify-center text-xs">RK</div>
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-earth-gray text-white flex items-center justify-center text-xs">JL</div>
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container flex items-center justify-center text-xs text-earth-gray">+12</div>
+                            </div>
+                            <button class="text-deep-forest font-bold flex items-center gap-2 hover:underline">
+                                Join the Conversation
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                            </button>
+                        </div>
+                        <div class="hidden md:block w-48 shrink-0">
+                            <img class="rounded-2xl h-full w-full object-cover grayscale opacity-50" data-alt="A soft-focus, minimalist image of three people sitting in a circle on woven floor mats in a bright, sunlit room with large windows. The mood is peaceful and collaborative, with a focus on human connection and calm community. The color palette is dominated by creams, soft greens, and warm wood tones, reflecting a restorative wellness environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa8Qv1VOl2w0XSxDmZkiCILd5NACheJsjoXDHTct5Jc7sFq1bBmXTghudFzJGbfa5Voilke1JTges0kI4jdZcdKaMP0H_Vr-5seMrIsFNYzZfiJT-1nQFTWszdtN9WqYBfeZRfwkZXaKMfL6_h7EBIuWie_NvniSjxIdyUQtbAODg-IVNYqfWCBNm6ZcX44QSb0CV_4Jzck9iNqJYhQKx5NhM99WsDNzU2K-DrCSlTCGHbatHAySJ7FlIx72PzxDk1GiMvzS9Xh2ol"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation (Mobile Only) -->
+        <nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-sanctuary-white/90 backdrop-blur-md border-t border-soft-sage z-50">
+            <a class="flex flex-col items-center justify-center bg-seafoam-mist/40 text-deep-forest rounded-xl px-4 py-1" href="#">
+                <span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+                <span class="font-caption text-caption">Home</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-earth-gray" href="#">
+                <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                <span class="font-caption text-caption">Log</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-earth-gray" href="#">
+                <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                <span class="font-caption text-caption">Insights</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-earth-gray" href="#">
+                <span class="material-symbols-outlined" data-icon="group">group</span>
+                <span class="font-caption text-caption">Circle</span>
+            </a>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="md:ml-64 border-t border-soft-sage py-12 bg-sanctuary-white">
+            <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto gap-4">
+                <div class="flex flex-col items-center md:items-start">
+                    <span class="font-label-md text-label-md text-deep-forest font-bold mb-1">Porcion</span>
+                    <p class="font-caption text-caption text-earth-gray">© 2026 Porcion. Restorative Wellness.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a class="font-caption text-caption text-earth-gray hover:text-deep-forest" href="#">Privacy Policy</a>
+                    <a class="font-caption text-caption text-earth-gray hover:text-deep-forest" href="#">Terms of Service</a>
+                    <a class="font-caption text-caption text-earth-gray hover:text-deep-forest" href="#">Support</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{% static 'app/scripts/dashboard.js' %}" defer></script>
+    </body>
 </html>
