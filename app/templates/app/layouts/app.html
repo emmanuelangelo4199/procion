@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+
+{% block body_class %}bg-background text-on-surface{% endblock %}
+
+{% block body %}
+    {% include "app/partials/sidebar.html" %}
+    {% include "app/partials/app_mobile_header.html" %}
+
+    <main class="md:ml-64 min-h-screen pt-24 md:pt-16 pb-24 md:pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include "app/partials/app_mobile_nav.html" %}
+    {% include "app/partials/app_footer.html" %}
+{% endblock %}

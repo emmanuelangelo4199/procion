@@ -1,0 +1,311 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Porcion | Pattern Deep-Dive</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        
+        <link rel="icon" href="{% static 'image/Container.png'%}" type="icon-image">
+        <style>
+            .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+            }
+            body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+            }
+            .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            }
+            .glass-card {
+            background: rgba(249, 251, 249, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8E4;
+            }
+            .correlation-node:hover {
+            filter: drop-shadow(0 0 8px rgba(168, 213, 186, 0.6));
+            transform: scale(1.05);
+            }
+        </style>
+        <script id="tailwind-config">
+            tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+            "colors": {
+            "surface-container": "#eceeec",
+            "on-secondary-fixed-variant": "#254f3a",
+            "surface-dim": "#d8dad9",
+            "error": "#ba1a1a",
+            "surface-tint": "#4d6453",
+            "on-background": "#191c1b",
+            "surface-container-low": "#f2f4f2",
+            "primary": "#061b0e",
+            "on-primary-fixed": "#0b2013",
+            "inverse-on-surface": "#eff1ef",
+            "soft-sage": "#E2E8E4",
+            "on-tertiary-container": "#819792",
+            "on-tertiary-fixed-variant": "#364b47",
+            "inverse-primary": "#b4cdb8",
+            "seafoam-mist": "#A8D5BA",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed-variant": "#364c3c",
+            "surface": "#f8faf8",
+            "on-primary-container": "#819986",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#0a1f1c",
+            "on-surface": "#191c1b",
+            "background": "#f8faf8",
+            "primary-container": "#1b3022",
+            "outline": "#737973",
+            "outline-variant": "#c3c8c1",
+            "tertiary": "#061a17",
+            "primary-fixed-dim": "#b4cdb8",
+            "on-secondary-container": "#436d57",
+            "tertiary-fixed": "#d0e7e1",
+            "on-secondary-fixed": "#002113",
+            "earth-gray": "#4A5D50",
+            "on-error-container": "#93000a",
+            "secondary-container": "#bfedd1",
+            "on-error": "#ffffff",
+            "deep-forest": "#1B3022",
+            "tertiary-container": "#1b2f2b",
+            "secondary": "#3d6751",
+            "on-tertiary": "#ffffff",
+            "sanctuary-white": "#F9FBF9",
+            "on-surface-variant": "#434843",
+            "inverse-surface": "#2e3130",
+            "surface-bright": "#f8faf8",
+            "secondary-fixed": "#bfedd1",
+            "tertiary-fixed-dim": "#b5cbc6",
+            "primary-fixed": "#d0e9d4",
+            "secondary-fixed-dim": "#a4d1b6",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e1e3e1",
+            "surface-container-high": "#e6e9e7",
+            "surface-container-highest": "#e1e3e1"
+            },
+            "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+            },
+            "spacing": {
+            "section-gap": "80px",
+            "gutter": "24px",
+            "unit": "8px",
+            "container-max-width": "1200px",
+            "margin-mobile": "20px",
+            "margin-desktop": "64px"
+            },
+            "fontFamily": {
+            "body-lg": ["Manrope"],
+            "label-md": ["Manrope"],
+            "headline-sm": ["Manrope"],
+            "headline-md": ["Manrope"],
+            "display-lg": ["Manrope"],
+            "body-md": ["Manrope"],
+            "caption": ["Manrope"],
+            "display-lg-mobile": ["Manrope"]
+            },
+            "fontSize": {
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+            }
+            }
+            }
+        </script>
+    </head>
+
+    <body class="bg-sanctuary-white text-on-surface">
+        <!-- TopAppBar -->
+        <header class="fixed top-0 w-full z-50 bg-sanctuary-white border-b border-soft-sage">
+            <div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+                <div class="font-display-lg-mobile text-display-lg-mobile text-deep-forest italic">Porcion</div>
+                <div class="hidden md:flex gap-8 items-center">
+                    <nav class="flex gap-6"><a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="#">Dashboard</a><a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="#">Food &amp; Mood</a><a class="text-deep-forest font-bold font-label-md text-label-md" href="#">Insights</a><a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="#">Circle</a></nav>
+                    <div class="flex items-center gap-4 ml-4"><span class="material-symbols-outlined text-deep-forest cursor-pointer" data-icon="notifications">notifications</span><span class="material-symbols-outlined text-deep-forest cursor-pointer" data-icon="account_circle">account_circle</span></div>
+                </div>
+                <!-- Mobile Menu Trigger -->
+                <div class="md:hidden"><span class="material-symbols-outlined text-deep-forest" data-icon="menu">menu</span></div>
+            </div>
+        </header>
+        <!-- Sidebar (Desktop) -->
+        <aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-sanctuary-white border-r border-soft-sage py-8 px-gutter z-40">
+            <div class="mt-20">
+                <div class="mb-10"><h2 class="font-headline-sm text-headline-sm text-deep-forest">Welcome back</h2><p class="font-label-md text-label-md text-earth-gray">Find your balance today</p></div>
+                <nav class="flex flex-col gap-4">
+                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a>
+                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#"><span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span><span class="font-label-md text-label-md">Food &amp; Mood</span></a>
+                    <a class="flex items-center gap-3 p-3 text-deep-forest font-bold border-b-2 border-deep-forest pb-1" href="#"><span class="material-symbols-outlined" data-icon="insights">insights</span><span class="font-label-md text-label-md">Insights</span></a>
+                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#"><span class="material-symbols-outlined" data-icon="groups">groups</span><span class="font-label-md text-label-md">Peer Circle</span></a>
+                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span><span class="font-label-md text-label-md">Settings</span></a>
+                </nav>
+                <button class="mt-12 w-full py-4 bg-deep-forest text-sanctuary-white rounded-lg font-label-md text-label-md transition-opacity hover:opacity-90">Log Entry</button>
+            </div>
+        </aside>
+        <!-- Main Content Canvas -->
+        <main class="md:ml-64 pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+            <!-- Hero Section -->
+            <section class="mb-16"><h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-deep-forest mb-4">Pattern Deep-Dive</h1><p class="font-body-lg text-body-lg text-earth-gray max-w-2xl">We've observed your rhythms over the last 30 days. This is how your emotional climate interacts with your nutritional choices.</p></section>
+            <!-- Correlation Map (The "Human" Data Viz) -->
+            <section class="mb-section-gap">
+                <div class="glass-card rounded-xl p-8 md:p-12 relative overflow-hidden">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+                        <div><h2 class="font-headline-md text-headline-md text-deep-forest">Correlation Map</h2><p class="font-body-md text-body-md text-earth-gray">Visualizing the magnetic pull between mood and cravings.</p></div>
+                        <div class="flex gap-2"><span class="px-4 py-2 bg-seafoam-mist/20 text-deep-forest rounded-full font-label-md text-label-md border border-seafoam-mist">Last 30 Days</span></div>
+                    </div>
+                    <!-- Custom Data Visualization: Abstract Relationship Web -->
+                    <div class="relative h-[400px] w-full flex items-center justify-center">
+                        <!-- Central Hub: Emotions -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-[300px] h-[300px] border border-dashed border-soft-sage rounded-full animate-[spin_60s_linear_infinite]"></div>
+                            <div class="w-[180px] h-[180px] border border-dashed border-soft-sage rounded-full absolute animate-[spin_40s_linear_infinite_reverse]"></div>
+                        </div>
+                        <!-- Emotional Nodes -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 relative z-10 w-full">
+                            <!-- Stress Node -->
+                            <div class="flex flex-col items-center group">
+                                <div class="correlation-node w-24 h-24 rounded-full bg-deep-forest flex items-center justify-center text-sanctuary-white mb-4 transition-all duration-500 cursor-help shadow-lg"><span class="material-symbols-outlined text-3xl" data-icon="bolt">bolt</span></div>
+                                <span class="font-label-md text-label-md text-deep-forest">Stress</span>
+                                <div class="mt-2 h-0.5 w-full bg-soft-sage relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 h-full bg-seafoam-mist w-[85%]"></div>
+                                </div>
+                                <span class="font-caption text-caption text-earth-gray mt-1">High Impact</span>
+                            </div>
+                            <!-- Calm Node -->
+                            <div class="flex flex-col items-center group">
+                                <div class="correlation-node w-16 h-16 rounded-full bg-seafoam-mist flex items-center justify-center text-deep-forest mb-4 transition-all duration-500 cursor-help"><span class="material-symbols-outlined text-2xl" data-icon="spa">spa</span></div>
+                                <span class="font-label-md text-label-md text-deep-forest">Calm</span>
+                                <div class="mt-2 h-0.5 w-full bg-soft-sage relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 h-full bg-seafoam-mist w-[30%]"></div>
+                                </div>
+                                <span class="font-caption text-caption text-earth-gray mt-1">Low Correlation</span>
+                            </div>
+                            <!-- Fatigue Node -->
+                            <div class="flex flex-col items-center group">
+                                <div class="correlation-node w-20 h-20 rounded-full border-2 border-deep-forest flex items-center justify-center text-deep-forest mb-4 transition-all duration-500 cursor-help"><span class="material-symbols-outlined text-2xl" data-icon="bedtime">bedtime</span></div>
+                                <span class="font-label-md text-label-md text-deep-forest">Fatigue</span>
+                                <div class="mt-2 h-0.5 w-full bg-soft-sage relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 h-full bg-seafoam-mist w-[60%]"></div>
+                                </div>
+                                <span class="font-caption text-caption text-earth-gray mt-1">Steady Link</span>
+                            </div>
+                            <!-- Focus Node -->
+                            <div class="flex flex-col items-center group">
+                                <div class="correlation-node w-12 h-12 rounded-full bg-soft-sage flex items-center justify-center text-deep-forest mb-4 transition-all duration-500 cursor-help"><span class="material-symbols-outlined text-xl" data-icon="center_focus_strong">center_focus_strong</span></div>
+                                <span class="font-label-md text-label-md text-deep-forest">Focus</span>
+                                <div class="mt-2 h-0.5 w-full bg-soft-sage relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 h-full bg-seafoam-mist w-[15%]"></div>
+                                </div>
+                                <span class="font-caption text-caption text-earth-gray mt-1">Minimal Effect</span>
+                            </div>
+                        </div>
+                        <!-- Overlay Mapping Text -->
+                        <div class="absolute bottom-4 left-8 hidden lg:block">
+                            <div class="flex items-center gap-3">
+                                <span class="w-3 h-3 rounded-full bg-deep-forest"></span>
+                                <span class="font-caption text-caption text-earth-gray">Primary Driver: Savory Snacks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Gentle Observations -->
+            <section class="mb-section-gap">
+                <div class="bento-grid">
+                    <!-- Main Insights Card -->
+                    <div class="col-span-12 lg:col-span-8 bg-soft-sage/30 rounded-xl p-10 border border-soft-sage">
+                        <h2 class="font-headline-md text-headline-md text-deep-forest mb-8">Gentle Observations</h2>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-6 border-b border-soft-sage pb-6 last:border-0">
+                                <div class="w-10 h-10 shrink-0 bg-sanctuary-white rounded-full flex items-center justify-center text-deep-forest shadow-sm"><span class="material-symbols-outlined" data-icon="timer">timer</span></div>
+                                <div><h3 class="font-headline-sm text-headline-sm text-deep-forest">Mid-afternoon stress peaks</h3><p class="font-body-md text-body-md text-earth-gray mt-2">You tend to seek comfort in savory flavors during mid-afternoon stress peaks, typically between 3 PM and 4 PM on weekdays.</p></div>
+                            </li>
+                            <li class="flex items-start gap-6 border-b border-soft-sage pb-6 last:border-0">
+                                <div class="w-10 h-10 shrink-0 bg-sanctuary-white rounded-full flex items-center justify-center text-deep-forest shadow-sm"><span class="material-symbols-outlined" data-icon="wb_twilight">wb_twilight</span></div>
+                                <div><h3 class="font-headline-sm text-headline-sm text-deep-forest">Morning stability</h3><p class="font-body-md text-body-md text-earth-gray mt-2">Your morning choices are remarkably consistent and nourishing, correlating with a 40% increase in reported focus until noon.</p></div>
+                            </li>
+                            <li class="flex items-start gap-6 border-b border-soft-sage pb-6 last:border-0">
+                                <div class="w-10 h-10 shrink-0 bg-sanctuary-white rounded-full flex items-center justify-center text-deep-forest shadow-sm"><span class="material-symbols-outlined" data-icon="coffee">coffee</span></div>
+                                <div><h3 class="font-headline-sm text-headline-sm text-deep-forest">Hydration &amp; fatigue</h3><p class="font-body-md text-body-md text-earth-gray mt-2">Fatigue levels drop when afternoon caffeine is paired with a mineral-rich snack like almonds or seeds.</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Secondary Visual Card -->
+                    <div class="col-span-12 lg:col-span-4 relative overflow-hidden rounded-xl border border-soft-sage min-h-[400px]">
+                        <img alt="Mindful eating" class="absolute inset-0 w-full h-full object-cover" data-alt="A tranquil, high-end close-up of a minimalist ceramic bowl containing fresh, vibrant greens and seeds on a soft linen tablecloth. The lighting is ethereal and natural, characteristic of a bright afternoon in a wellness retreat. The scene is dominated by sanctuary white and deep forest green tones, evoking a sense of calm, restorative nutritional focus and mindful behavior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtlcx3aj9iVWKLr3A1g_fQMCWX2erAgHWQH0SS6kOiqwZilpm4jmGGADcY1Uv6j03rKRDF6YCXGvLQz2JKlvot1tXMeSOWycZL2npLtGmjVE7VvLPZhkSRK81jr3nMv0Wc2Alvt5xcxZVJMPL9kUhzo_urUI0sa0ApIg52o6iwOdCjUzaTF01KorTybZd_yqMVuvshbG6Pk6y3w7MpPXISpg0t4dMLaSYZxD6pbUiTX6ZAwRauSxjfGUcQuxoicQb7iTLv-zXIMGXx"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-deep-forest/80 to-transparent flex items-end p-8"><p class="font-body-lg text-body-lg text-sanctuary-white italic">"Awareness is the first step toward a more restorative relationship with yourself."</p></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Pathways Forward -->
+            <section class="mb-section-gap">
+                <h2 class="font-headline-md text-headline-md text-deep-forest mb-8">Pathways Forward</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Micro-habit 1 -->
+                    <div class="bg-sanctuary-white p-8 rounded-xl border border-soft-sage hover:border-seafoam-mist transition-colors group">
+                        <div class="flex justify-between items-start mb-6"><span class="material-symbols-outlined text-seafoam-mist text-3xl" data-icon="self_improvement">self_improvement</span><span class="font-caption text-caption text-earth-gray px-3 py-1 bg-soft-sage/30 rounded-full">5 MINS</span></div>
+                        <h3 class="font-headline-sm text-headline-sm text-deep-forest mb-4">The 3 PM Reset</h3>
+                        <p class="font-body-md text-body-md text-earth-gray mb-6">When you feel the craving for savory snacks, try 2 minutes of box breathing before reaching for the pantry.</p>
+                        <button class="flex items-center gap-2 text-deep-forest font-label-md text-label-md group-hover:underline">Add to Daily Log<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button>
+                    </div>
+                    <!-- Micro-habit 2 -->
+                    <div class="bg-sanctuary-white p-8 rounded-xl border border-soft-sage hover:border-seafoam-mist transition-colors group">
+                        <div class="flex justify-between items-start mb-6"><span class="material-symbols-outlined text-seafoam-mist text-3xl" data-icon="water_drop">water_drop</span><span class="font-caption text-caption text-earth-gray px-3 py-1 bg-soft-sage/30 rounded-full">1 MIN</span></div>
+                        <h3 class="font-headline-sm text-headline-sm text-deep-forest mb-4">Mineral Infusion</h3>
+                        <p class="font-body-md text-body-md text-earth-gray mb-6">Swap your second coffee for a tall glass of sparkling water with a pinch of sea salt and lemon to curb fatigue.</p>
+                        <button class="flex items-center gap-2 text-deep-forest font-label-md text-label-md group-hover:underline">Set Reminder<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button>
+                    </div>
+                    <!-- Micro-habit 3 -->
+                    <div class="bg-sanctuary-white p-8 rounded-xl border border-soft-sage hover:border-seafoam-mist transition-colors group">
+                        <div class="flex justify-between items-start mb-6"><span class="material-symbols-outlined text-seafoam-mist text-3xl" data-icon="edit_note">edit_note</span><span class="font-caption text-caption text-earth-gray px-3 py-1 bg-soft-sage/30 rounded-full">3 MINS</span></div>
+                        <h3 class="font-headline-sm text-headline-sm text-deep-forest mb-4">Gratitude Pairing</h3>
+                        <p class="font-body-md text-body-md text-earth-gray mb-6">Take one photo of your most nourishing meal today and note one thing you are proud of accomplishing.</p>
+                        <button class="flex items-center gap-2 text-deep-forest font-label-md text-label-md group-hover:underline">Open Journal<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="w-full py-12 bg-sanctuary-white border-t border-soft-sage">
+            <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto gap-4">
+                <div class="font-label-md text-label-md text-deep-forest">Porcion</div>
+                <div class="text-earth-gray font-caption text-caption">© 2024 Porcion. Restorative Wellness.</div>
+                <div class="flex gap-6"><a class="text-earth-gray hover:text-deep-forest underline font-caption text-caption transition-colors" href="#">Privacy Policy</a><a class="text-earth-gray hover:text-deep-forest underline font-caption text-caption transition-colors" href="#">Terms of Service</a><a class="text-earth-gray hover:text-deep-forest underline font-caption text-caption transition-colors" href="#">Support</a></div>
+            </div>
+        </footer>
+        <!-- BottomNavBar (Mobile Only) -->
+        <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-sanctuary-white/90 backdrop-blur-md border-t border-soft-sage md:hidden z-50">
+            <a class="flex flex-col items-center justify-center text-earth-gray" href="#"><span class="material-symbols-outlined" data-icon="home">home</span><span class="font-caption text-caption">Home</span></a>
+            <a class="flex flex-col items-center justify-center text-earth-gray" href="#"><span class="material-symbols-outlined" data-icon="add_circle">add_circle</span><span class="font-caption text-caption">Log</span></a>
+            <a class="flex flex-col items-center justify-center bg-seafoam-mist/40 text-deep-forest rounded-xl px-4 py-1" href="#"><span class="material-symbols-outlined" data-icon="analytics">analytics</span><span class="font-caption text-caption">Insights</span></a>
+            <a class="flex flex-col items-center justify-center text-earth-gray" href="#"><span class="material-symbols-outlined" data-icon="group">group</span><span class="font-caption text-caption">Circle</span></a>
+        </nav>
+        <script>
+            // Micro-interaction for correlation nodes
+            document.querySelectorAll('.correlation-node').forEach(node => {
+            node.addEventListener('mouseenter', () => {
+            // Future implementation: show detailed tooltip or highlight connecting lines
+            });
+            });
+        </script>
+    </body>
+</html>

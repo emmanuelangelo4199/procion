@@ -1,0 +1,47 @@
+{% with current=request.resolver_match.url_name %}
+<aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-sanctuary-white border-r border-soft-sage py-8 px-6 z-40">
+    <div class="mb-12">
+        <a href="{% url 'dashboard' %}" class="font-display-lg text-headline-sm text-deep-forest italic">Porcion</a>
+    </div>
+    <div class="mb-10">
+        <p class="font-label-md text-label-md text-earth-gray uppercase mb-4 tracking-widest">Navigation</p>
+        <nav class="space-y-2">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if current == 'dashboard' %}text-deep-forest font-bold border-b-2 border-deep-forest{% else %}text-earth-gray hover:bg-soft-sage/30{% endif %}" href="{% url 'dashboard' %}">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span class="font-label-md text-label-md">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if current == 'journal' %}text-deep-forest font-bold border-b-2 border-deep-forest{% else %}text-earth-gray hover:bg-soft-sage/30{% endif %}" href="{% url 'journal' %}">
+                <span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+                <span class="font-label-md text-label-md">Journal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if current == 'insights' %}text-deep-forest font-bold border-b-2 border-deep-forest{% else %}text-earth-gray hover:bg-soft-sage/30{% endif %}" href="{% url 'insights' %}">
+                <span class="material-symbols-outlined" data-icon="insights">insights</span>
+                <span class="font-label-md text-label-md">Insights</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="{% url 'dashboard' %}">
+                <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                <span class="font-label-md text-label-md">Habits</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if current == 'circle' %}text-deep-forest font-bold border-b-2 border-deep-forest{% else %}text-earth-gray hover:bg-soft-sage/30{% endif %}" href="{% url 'circle' %}">
+                <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                <span class="font-label-md text-label-md">Peer Circle</span>
+            </a>
+        </nav>
+    </div>
+    <div class="mt-auto space-y-2">
+        <a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {% if current == 'profile' %}text-deep-forest font-bold border-b-2 border-deep-forest{% else %}text-earth-gray hover:bg-soft-sage/30{% endif %}" href="{% url 'profile' %}">
+            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            <span class="font-label-md text-label-md">Settings</span>
+        </a>
+        <div class="pt-6 border-t border-soft-sage">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-seafoam-mist flex items-center justify-center text-deep-forest font-bold">S</div>
+                <div>
+                    <p class="font-label-md text-label-md text-deep-forest">Sarah Miller</p>
+                    <p class="text-[10px] text-earth-gray">Pro Member</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+{% endwith %}
