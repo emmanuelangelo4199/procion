@@ -140,11 +140,25 @@
             <div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
                 <div class="font-display-lg-mobile text-display-lg-mobile text-deep-forest italic">Porcion</div>
                 <div class="hidden md:flex gap-8 items-center">
-                    <nav class="flex gap-6"><a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="#">Dashboard</a><a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="#">Food &amp; Mood</a><a class="text-deep-forest font-bold font-label-md text-label-md" href="#">Insights</a><a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="#">Circle</a></nav>
-                    <div class="flex items-center gap-4 ml-4"><span class="material-symbols-outlined text-deep-forest cursor-pointer" data-icon="notifications">notifications</span><span class="material-symbols-outlined text-deep-forest cursor-pointer" data-icon="account_circle">account_circle</span></div>
+                    <nav class="flex gap-6">
+                        <a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="{% url "dashboard" %}">Dashboard</a>
+                        <a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="{% url "journal" %}">Food &amp; Mood</a>
+                        <a class="text-deep-forest font-bold font-label-md text-label-md" href="{% url "insights" %}">Insights</a>
+                        <a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="{% url "circle" %}">Circle</a>
+                    </nav>
+                    <div class="flex items-center gap-4 ml-4">
+                        <a href="{% url "profile" %}">
+                            <span class="material-symbols-outlined text-deep-forest cursor-pointer" data-icon="notifications">notifications</span>
+                        </a>
+                        <a href="{% url "profile" %}">
+                            <span class="material-symbols-outlined text-deep-forest cursor-pointer" data-icon="account_circle">account_circle</span>
+                        </a>
+                    </div>
                 </div>
                 <!-- Mobile Menu Trigger -->
-                <div class="md:hidden"><span class="material-symbols-outlined text-deep-forest" data-icon="menu">menu</span></div>
+                <div class="md:hidden">
+                    <span class="material-symbols-outlined text-deep-forest" data-icon="menu">menu</span>
+                </div>
             </div>
         </header>
         <!-- Sidebar (Desktop) -->
@@ -152,7 +166,10 @@
             <div class="mt-20">
                 <div class="mb-10"><h2 class="font-headline-sm text-headline-sm text-deep-forest">Welcome back</h2><p class="font-label-md text-label-md text-earth-gray">Find your balance today</p></div>
                 <nav class="flex flex-col gap-4">
-                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a>
+                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#">
+                        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        <span class="font-label-md text-label-md">Dashboard</span>
+                    </a>
                     <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#"><span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span><span class="font-label-md text-label-md">Food &amp; Mood</span></a>
                     <a class="flex items-center gap-3 p-3 text-deep-forest font-bold border-b-2 border-deep-forest pb-1" href="#"><span class="material-symbols-outlined" data-icon="insights">insights</span><span class="font-label-md text-label-md">Insights</span></a>
                     <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="#"><span class="material-symbols-outlined" data-icon="groups">groups</span><span class="font-label-md text-label-md">Peer Circle</span></a>
