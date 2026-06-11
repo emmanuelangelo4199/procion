@@ -21,6 +21,9 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'app',
     'user',
+    'tracking',
+    'circle',
+    'dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
