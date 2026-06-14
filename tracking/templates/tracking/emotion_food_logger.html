@@ -214,15 +214,28 @@
         </main>
         <!-- Bottom Navigation (Mobile Only) -->
         <div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-4 pb-safe bg-white/80 backdrop-blur-lg border-t border-soft-sage/40 md:hidden z-50">
-            <a class="flex flex-col items-center gap-1 text-earth-gray" href="#"><span class="material-symbols-outlined" data-icon="home">home</span><span class="font-caption text-[10px] uppercase tracking-tighter">Home</span></a>
-            <a class="flex flex-col items-center gap-1 text-deep-forest" href="#"><span class="material-symbols-outlined" data-icon="add_circle">add_circle</span><span class="font-caption text-[10px] uppercase tracking-tighter">Log</span></a>
-            <a class="flex flex-col items-center gap-1 text-earth-gray" href="#"><span class="material-symbols-outlined" data-icon="auto_graph">auto_graph</span><span class="font-caption text-[10px] uppercase tracking-tighter">Stats</span></a>
+            <a class="flex flex-col items-center gap-1 text-earth-gray" href="{% url 'dashboard' %}">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span class="font-caption text-[10px] uppercase tracking-tighter">Dashboard</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 text-deep-forest" href="{% url 'journal' %}">
+                <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                <span class="font-caption text-[10px] uppercase tracking-tighter">Log</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 text-earth-gray" href="{% url 'insights' %}">
+                <span class="material-symbols-outlined" data-icon="auto_graph">auto_graph</span>
+                <span class="font-caption text-[10px] uppercase tracking-tighter">Insight</span>
+            </a>
         </div>
         <footer class="w-full py-20 border-t border-soft-sage/20 bg-sanctuary-white mt-12">
             <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto gap-8 md:pl-20 lg:pl-72">
                 <span class="font-display-lg text-2xl text-deep-forest italic">Porcion</span>
                 <p class="font-caption text-xs tracking-wide text-earth-gray/60 uppercase">© 2026 Porcion. Restorative Wellness.</p>
-                <div class="flex gap-8 text-xs tracking-widest uppercase text-earth-gray/60"><a class="hover:text-deep-forest transition-colors" href="#">Privacy</a><a class="hover:text-deep-forest transition-colors" href="#">Terms</a><a class="hover:text-deep-forest transition-colors" href="#">Support</a></div>
+                <div class="flex gap-8 text-xs tracking-widest uppercase text-earth-gray/60">
+                    <a class="hover:text-deep-forest transition-colors" href="#">Privacy</a>
+                    <a class="hover:text-deep-forest transition-colors" href="#">Terms</a>
+                    <a class="hover:text-deep-forest transition-colors" href="#">Support</a>
+                </div>
             </div>
         </footer>
         <script src="{% static "app/scripts/emotion_food.js"%}" defer></script>
