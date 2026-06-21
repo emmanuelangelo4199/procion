@@ -134,7 +134,7 @@
                 <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Our Method</a>
                 <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Science</a>
                 <div class="h-4 w-px bg-outline-variant"></div>
-                <a class="text-label-md font-label-md text-primary font-bold" href="#">Log In</a>
+                <a class="text-label-md font-label-md text-primary font-bold" href="{% url 'login' %}">Log In</a>
             </div>
         </header>
         <main class="flex-grow flex flex-col md:grid md:grid-cols-12 min-h-[calc(100vh-88px)]">
@@ -194,7 +194,7 @@
                         </div>
                     </form>
                     <p class="mt-8 text-center text-body-md text-on-surface-variant">
-                        Don't have an account? <a class="text-primary font-bold hover:underline decoration-secondary decoration-2 underline-offset-4" href="#">Sign up for free</a>
+                        Don't have an account? <a class="text-primary font-bold hover:underline decoration-secondary decoration-2 underline-offset-4" href="{% url 'signup' %}">Sign up for free</a>
                     </p>
                     <!-- Trust Badge -->
                     <div class="mt-16 flex items-center justify-center gap-4 py-4 px-6 bg-surface-container-low rounded-xl border border-outline-variant/30">
