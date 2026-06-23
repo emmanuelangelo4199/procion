@@ -135,11 +135,12 @@
                 <h1 class="font-display text-display text-primary leading-none">Porcion</h1>
                 <p class="font-body-md text-on-surface-variant italic mt-1">Restorative Wellness</p>
             </div>
+            
+            <button class="bg-primary-container text-on-primary-container py-3 px-6 rounded-lg font-label-md mb-10 transition-transform active:scale-95 hover:opacity-90">New Entry</button>
 
             <!-- Leave Circle action -->
-            <form method="post" action="{% url 'circle' %}" class="mt-4 pt-4 pb-4 border-b border-outline-variant">
+            <form method="post" action="{% url 'leave_circle' %}" class="mt-4 pt-4 pb-4 border-b border-outline-variant">
                 {% csrf_token %}
-                <button class="w-full bg-primary-container text-on-primary-container py-3 px-6 rounded-lg font-label-md mb-10 transition-transform active:scale-95 hover:opacity-90">New Entry</button>
                 
                 <button type="submit" class="w-full text-error border border-error/30 py-2.5 rounded-lg font-label-md hover:bg-error hover:text-white transition-all">
                     Leave Circle
