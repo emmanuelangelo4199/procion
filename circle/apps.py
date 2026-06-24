@@ -8,4 +8,4 @@ class CircleConfig(AppConfig):
     def ready(self):
         # This imports the signals file when Django starts up
         import circle.signals
- 
+        
