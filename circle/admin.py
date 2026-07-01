@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Circle, Message, WeeklyPrompt, PromptAnswer, CircleWaitlist
 
-# Register your models here.
+admin.site.register(Circle)
+admin.site.register(Message)
+admin.site.register(WeeklyPrompt)
+admin.site.register(PromptAnswer)
+admin.site.register(CircleWaitlist)
