@@ -6,10 +6,17 @@ from .models import Circle
 
 
 @login_required 
-def my_circle(request):
-    circle = request.user.circles.first()
+def my_circle(request): 
+    circle = request.user.circles.prefetch_related('members__profile').first()
+    recent_messages = []
+    if circle:
+        recent_messages = circle.messages.select_related('sender').order_by('-created_at')[:50]
+        recent_messages = reversed(recent_messages)
 
-    context = {'circle': circle}
+    context = {
+        'circle': circle,
+        'recent_messages': recent_messages
+        }
     return render(request, "circle/my_circle.html", context)
 
 @login_required
