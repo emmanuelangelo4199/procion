@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>My Circle | Porcion</title>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+        <!-- Material Symbols -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        
+        <link rel="icon" href="{% static 'image/Container.png'%}" type="icon-image">
+        <script id="tailwind-config">
+             tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                                "inverse-on-surface": "#eff1ef",
+                                "inverse-primary": "#b4cdb8",
+                                "surface-dim": "#d8dad9",
+                                "primary": "#061b0e",
+                                "on-tertiary-fixed-variant": "#514531",
+                                "on-primary-fixed-variant": "#364c3c",
+                                "primary-container": "#1b3022",
+                                "background": "#f8faf8",
+                                "tertiary": "#1f1606",
+                                "on-primary-container": "#819986",
+                                "on-tertiary": "#ffffff",
+                                "surface-container-low": "#f2f4f2",
+                                "on-secondary-fixed": "#171d10",
+                                "surface-variant": "#e1e3e1",
+                                "surface-container": "#eceeec",
+                                "primary-fixed-dim": "#b4cdb8",
+                                "on-tertiary-container": "#a19179",
+                                "error": "#ba1a1a",
+                                "surface-container-highest": "#e1e3e1",
+                                "on-primary": "#ffffff",
+                                "primary-fixed": "#d0e9d4",
+                                "secondary-fixed": "#dee5cf",
+                                "on-secondary-container": "#5e6553",
+                                "inverse-surface": "#2e3130",
+                                "on-error-container": "#93000a",
+                                "on-primary-fixed": "#0b2013",
+                                "on-error": "#ffffff",
+                                "error-container": "#ffdad6",
+                                "outline": "#737973",
+                                "secondary-container": "#dce2cc",
+                                "on-surface-variant": "#434843",
+                                "surface-bright": "#f8faf8",
+                                "tertiary-fixed-dim": "#d6c4aa",
+                                "secondary": "#5a614f",
+                                "on-secondary-fixed-variant": "#424939",
+                                "on-background": "#191c1b",
+                                "outline-variant": "#c3c8c1",
+                                "tertiary-container": "#352a18",
+                                "surface-container-high": "#e6e9e7",
+                                "secondary-fixed-dim": "#c2c9b4",
+                                "surface-tint": "#4d6453",
+                                "surface": "#f8faf8",
+                                "on-tertiary-fixed": "#241a09",
+                                "on-surface": "#191c1b",
+                                "tertiary-fixed": "#f3e0c4",
+                                "on-secondary": "#ffffff",
+                                "surface-container-lowest": "#ffffff"
+                        },
+                        "borderRadius": {
+                                "DEFAULT": "0.25rem",
+                                "lg": "0.5rem",
+                                "xl": "0.75rem",
+                                "full": "9999px"
+                        },
+                        "spacing": {
+                                "margin-desktop": "64px",
+                                "unit": "8px",
+                                "container-max": "1140px",
+                                "margin-mobile": "24px",
+                                "gutter": "24px"
+                        },
+                        "fontFamily": {
+                                "label-sm": ["Manrope"],
+                                "headline-lg": ["EB Garamond"],
+                                "body-md": ["Manrope"],
+                                "headline-md": ["EB Garamond"],
+                                "headline-lg-mobile": ["EB Garamond"],
+                                "body-lg": ["Manrope"],
+                                "label-md": ["Manrope"],
+                                "display": ["EB Garamond"]
+                        },
+                        "fontSize": {
+                                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                                "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}]
+                        }
+                    },
+                },
+            }
+        </script>
+        <style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            body {
+                background-color: #f8faf8;
+                color: #191c1b;
+                overflow-x: hidden;
+            }
+            .editorial-shadow {
+                box-shadow: 0 20px 40px -10px rgba(77, 100, 83, 0.04);
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            @media (max-width: 1024px) {
+                .mobile-nav-shadow {
+                    box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+                }
+            }
+        </style>
+    </head>
+
+    <body class="font-body-md text-body-md antialiased flex flex-col lg:flex-row min-h-screen">
+
+        <!-- Mobile Top Header -->
+        <div class="lg:hidden flex items-center justify-between px-6 py-4 bg-surface border-b border-outline-variant sticky top-0 z-50">
+            <h1 class="font-display text-2xl text-primary">Porcion</h1>
+            <button class="text-primary p-2" id="mobileMenuBtn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <!-- Sidebar Navigation Shell -->
+        <aside class="fixed inset-y-0 left-0 w-64 bg-surface border-r border-outline-variant flex flex-col py-8 px-8 z-50 transition-transform duration-300 -translate-x-full lg:translate-x-0 lg:sticky lg:h-screen" id="sidebar">
+            <div class="mb-12 hidden lg:block">
+                <h1 class="font-display text-display text-primary leading-none">Porcion</h1>
+                <p class="font-body-md text-on-surface-variant italic mt-1">Restorative Wellness</p>
+            </div>
+            
+            <button class="bg-primary text-on-primary py-3 px-6 rounded-lg font-label-md mb-10 transition-all hover:bg-opacity-90 active:scale-95"> New Entry</button>
+
+            <!-- Leave Circle action -->
+            <form method="post" action="{% url 'leave_circle' %}" class="mt-4 pt-4 pb-4 border-b border-outline-variant">
+                {% csrf_token %}
+                
+                <button type="submit" class="w-full text-error border border-error/30 py-2.5 rounded-lg font-label-md hover:bg-error hover:text-white transition-all">
+                    Leave Circle
+                </button>
+            </form>
+            <!-- Nav Item: Dashboard -->
+           <nav class="flex flex-col gap-y-2 flex-grow">
+                <a class="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all duration-300 text-on-surface-variant hover:text-primary hover:bg-surface-container-low" href="#">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="font-body-md">Dashboard</span>
+                </a>
+
+                <a class="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all duration-300 text-on-surface-variant hover:text-primary hover:bg-surface-container-low" href="#">
+                    <span class="material-symbols-outlined">menu_book</span>
+                    <span class="font-body-md">Journal</span>
+                </a>
+
+                <a class="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all duration-300 text-on-surface-variant hover:text-primary hover:bg-surface-container-low" href="#" >
+                    <span class="material-symbols-outlined">insights</span>
+                    <span class="font-body-md">Insights</span>
+                </a>
+
+                <a class="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all duration-300 text-on-surface-variant hover:text-primary hover:bg-surface-container-low" href="#" >
+                    <span class="material-symbols-outlined">auto_fix_high</span>
+                    <span class="font-body-md">Habits</span>
+                </a>
+
+                <a class="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all duration-200 text-primary font-bold bg-surface-container border-r-4 border-primary" href="#" >
+                    <span class="material-symbols-outlined">group</span>
+                    <span class="font-body-md">My Circle</span>
+                </a>
+            </nav>
+            <div class="mt-auto pt-8 border-t border-outline-variant flex flex-col gap-y-2">
+                <a class="flex items-center gap-3 p-2 cursor-pointer transition-all duration-300 text-on-surface-variant hover:text-primary" href="#">
+                    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    <span class="font-body-md">Settings</span>
+                </a>
+                <a class="flex items-center gap-3 p-2 cursor-pointer transition-all duration-300 text-on-surface-variant hover:text-primary" href="#">
+                    <span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                    <span class="font-body-md">Support</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content Canvas -->
+        <main class="ml-64 min-h-screen flex flex-col">
+            <div class="max-w-[container-max] mx-auto px-margin-desktop py-12 h-screen flex flex-col overflow-hidden">
+                <!-- Page Header -->
+                <header class="mb-16 flex justify-between items-end">
+                    <div>
+                        <span class="font-label-sm uppercase tracking-widest text-outline mb-2 block">Fellowship</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary">My Circle</h2>
+                        <p class="font-body-lg text-on-surface-variant mt-2 max-w-xl">A private space for the 'Oak &amp; Stone' collective. Six members walking the same path toward restoration.</p>
+                    </div>
+                    <div class="flex -space-x-3 lg:-space-x-4">
+                        <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 lg:border-4 border-surface object-cover" data-alt="A portrait of a serene woman in natural morning light, wearing a simple linen garment. The background is a soft-focus minimalist interior with olive green accents and natural wood textures, reflecting a calm and restorative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANVuTtK_DmqyMketihX3V034amRAasqhXQ-mWxYw7x9Ll7Z0W2psOBK95dFVrigzJ_3j4KRNr026uBbl9RuvNusMeNM8BRDhXrzImSOBjqQwVkFfvwfBrAaNyrlH99tp5hRzPfY2F5oSNIBqh9JQ0b-zO0HQnI3nakFXiGWnSFEjAn1v5ex0wBaFL1UAzb4jWdwCbznPVfPjHdlYK4O4rVvmWVxCz2001GT0gkjsJtanJZOm3TsOru1nx_EHVOCWl5Me0ZkStpoWh7"/>
+                        <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 lg:border-4 border-surface object-cover" data-alt="A thoughtful man with a gentle expression sitting in a garden setting. The lighting is golden hour, casting soft warm tones across the scene. The overall aesthetic is editorial and peaceful, utilizing a palette of earth tones like moss and clay." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4bFqfOzxG5jvTzzWNKsbqRMZTs1rhfOeHHs96i89NXf4tN3GOIQMeZIHwvCM2ck-WrlOnviL923pzhJbEEqb0e4HIA3ALDAsLbax4w2EU-rvlQAHQLtkqukvAqM91rQO8keYNCsvSocaguAoBK1h1nCuzi-0bz4nul9uaCmsjqmpUSKons77Ehy4kRMnnC74_QL5eWk6P3vZ_GWtZT0VkyLDgLgt8-MEuU2WcLYiMOTSWbGMXYxjLb9geoKp7eBCM1uMYb8Gp6hGB"/>
+                        <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 lg:border-4 border-surface object-cover" data-alt="A portrait of a man looking off-camera with a contemplative gaze. The lighting is soft and directional, highlighting textures of stone and natural fibers in the environment. The image feels like a high-end magazine profile, quiet and intentional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAATbjgNp2i4w7k3US8V6Z_TAETeXzyrw2rW_D0nRx8eV7QkNbFcJJk-_b0XbllPX59dpwuPT1RgnVbGlSHry7eDhNUaxqtgh2VZcLUVT5N-k41ITpSLOMnP-5HdXyfu1sNKwEHnIZsfbWfwqFxMXND7cZD8WsQW33LTbcdUPpTODHpig_4FeNOhMwtkwEZ1iAsYSlhbQTRR2B4U_R0GR8zCVOgzBZfGLvsUyvWAePBXEvmVV8CaNecdsuWa8W4BSKwpIT6EvKUawz-"/>
+                        <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 lg:border-4 border-surface object-cover" data-alt="A woman with a peaceful smile, positioned against a background of sage green foliage. The aesthetic is tactile and soft, with a shallow depth of field that emphasizes a sense of private reflection and emotional safety." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApVtis5jvw_x60JaSBHjzxO_-n1ZCxMai0kWI883I23uP92YWjyIjFKpP2moHjWY5LUBSzr2nuH1A3YYL0071fYBlswNM1jD8ud3F5OSs2HmL-T6jkR2DX-rnFpMunqz5s2rLJC-abMyooL4ciBEgo0Y1Vk_EDyLWPncUKPb_iby7dRRQC7hwj12KQcAWkDAcaozl2stMfKuVAmCAzrMDi9IE1hmciV-0t9Le0HOKZtFa5B7i3LKGWO-bOzDe0TsP2Tz-2LJqY3VUE"/>
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 lg:border-4 border-surface bg-secondary-container flex items-center justify-center font-label-md text-on-secondary-container">+2</div>
+                    </div>
+                </header>
+
+                {% comment %} let's javascript read the circle ID from the tempalte {% endcomment %}
+                <div id="circle-data" 
+                    data-circle-id="{{ circle.id }}" 
+                    data-user-name="{{ request.user.name }}">
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 flex-grow min-h-0">
+                    <!-- Central Feed  Section -->
+                    <section class="lg:col-span-8 flex flex-col gap-y-6 overflow-hidden h-full">
+                        <!-- Reflection Entry Input -->
+                        <!-- The Feed -->
+                        <div id="chat-feed" class="flex-1 overflow-y-auto pr-4 hide-scrollbar space-y-4 min-h-0">
+                            <!-- Chat Message: Other -->
+                            {% for message in recent_messages %}
+                                {% if message.sender == request.user %}
+                                    <div class="flex flex-col items-end gap-2 mb-8">
+                                        <div class="flex items-center gap-2 mr-2">
+                                            <span class="font-label-sm text-outline uppercase tracking-wider">
+                                                You • {{ message.created_at|timesince }} ago
+                                            </span>
+                                        </div>
+                                        <div class="max-w-[80%] bg-primary-container text-on-primary-container rounded-2xl rounded-tr-none p-4">
+                                            <p class="font-body-md">{{ message.text }}</p>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="flex flex-col items-start gap-2 mb-8">
+                                        <div class="flex items-center gap-2 ml-2">
+                                            <span class="font-label-sm text-outline uppercase tracking-wider">
+                                                {{ message.sender.name }} • {{ message.created_at|timesince }} ago
+                                            </span>
+                                        </div>
+                                        <div class="max-w-[80%] bg-surface-container-low rounded-2xl rounded-tl-none p-4">
+                                            <p class="font-body-md text-on-surface">{{ message.text }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% empty %}
+                                <p class="text-center text-on-surface-variant font-body-md py-8">
+                                    No messages yet. Start the conversation.
+                                </p>
+                            {% endfor %}
+                        </div>
+
+
+                        <div class="mt-8 bg-white rounded-xl p-6 border border-outline-variant editorial-shadow flex-shrink-0">
+                            <div class="flex items-center gap-4">
+                                <button class="text-outline hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined">add_circle</span>
+                                </button>
+                                <div class="flex-grow relative">
+                                    <input id="message-input" class="w-full border border-outline-variant focus:ring-1 focus:ring-primary font-body-md text-on-surface-variant placeholder:text-surface-dim py-3 px-4 bg-surface-container-low rounded-full" placeholder="Message the circle..." type="text"/>
+                                </div>
+                                <button id="send-btn" class="bg-primary text-on-primary p-3 rounded-full hover:bg-opacity-90 transition-all flex items-center justify-center">
+                                    <span class="material-symbols-outlined">send</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                    </section>
+                    <!-- Sidebar Content (4 Columns) -->
+                    <aside class="col-span-4 space-y-12 overflow-y-auto hide-scrollbar">
+                        <!-- Weekly Reflection Prompt -->
+                        <div class="bg-tertiary-container text-on-tertiary-container rounded-xl p-8 editorial-shadow">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                                <span class="font-label-md uppercase tracking-widest text-on-tertiary-container/80">Weekly Prompt</span>
+                            </div>
+                            <h3 class="font-headline-md text-white mb-4">"What is one restorative practice you can gift yourself this weekend?"</h3>
+                            <p class="font-body-md text-on-tertiary-container/70 mb-6 italic">4 of 5 members have answered</p>
+                            <button class="w-full border border-on-tertiary-container/30 text-white py-3 rounded-lg font-label-md hover:bg-white hover:text-tertiary-container transition-all">Write Your Answer</button>
+                        </div>
+                        <!-- Group Consistency Metric -->
+                        <!-- Circle Guidelines -->
+                        <div class="p-8 bg-white border border-outline-variant rounded-xl editorial-shadow">
+                            <h4 class="font-label-md text-primary uppercase tracking-widest mb-6">
+                                Circle Members ({{ circle.members.count }})
+                            </h4>
+                            <div class="space-y-4">
+                                {% for member in circle.members.all %}
+                                <div class="flex items-center gap-3">
+                                    {% if member.profile.avatar %}
+                                        <img alt="{{ member.name }}"
+                                            class="w-10 h-10 rounded-full object-cover"
+                                            src="{{ member.profile.avatar.url }}"/>
+                                    {% else %}
+                                        <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-label-md text-on-secondary-container">
+                                            {{ member.name|first|upper }}
+                                        </div>
+                                    {% endif %}
+                                    <div>
+                                        <p class="font-label-md text-on-surface">
+                                            {{ member.name }}
+                                            {% if member == request.user %}
+                                                <span class="text-outline font-label-sm">(you)</span>
+                                            {% endif %}
+                                        </p>
+                                        <p class="text-label-sm text-outline">Member</p>
+                                    </div>
+                                </div>
+                                {% empty %}
+                                    <p class="text-label-sm text-outline">No members yet.</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+            <!-- Mobile Navigation Overlay -->
+            <div class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden" id="mobileOverlay">
+        <!-- Micro-interaction Scripts -->
+        <script src="{% static 'app/scripts/my_circle.js' %}" defer>
+
+            const sidebar = document.getElementById("sidebar");
+            const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+            const mobileOverlay = document.getElementById("mobileOverlay");
+
+            function toggleMenu() {
+                sidebar.classList.toggle("-translate-x-full");
+                mobileOverlay.classList.toggle("hidden");
+            }
+
+            mobileMenuBtn.addEventListener("click", toggleMenu);
+            mobileOverlay.addEventListener("click", toggleMenu);
+
+            // Sidebar hover interactions for desktop
+            const navItems = document.querySelectorAll("nav > a");
+            navItems.forEach((item) => {
+                item.addEventListener("mouseenter", () => {
+                if (!item.classList.contains("text-primary")) {
+                    item.style.transform = "translateX(4px)";
+                }
+                });
+                item.addEventListener("mouseleave", () => {
+                item.style.transform = "translateX(0px)";
+                });
+            });
+
+            // Chat feed scroll to bottom on load
+            window.onload = () => {
+                const feed = document.querySelector(".overflow-y-auto");
+                feed.scrollTop = feed.scrollHeight;
+            };
+        </script>
+    </body>
+</html>
+
