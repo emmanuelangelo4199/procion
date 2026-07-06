@@ -1,11 +1,10 @@
- // Micro-interactions for micro-habits checklist
+// Micro-interactions for micro-habits checklist
 document.querySelectorAll('ul li').forEach(item => {
     item.addEventListener('click', function() {
-
         const circle = this.querySelector('div');
         const text = this.querySelector('span');
         const iconSpan = document.createElement('span');
-
+        
         if (circle.innerHTML === '') {
             circle.classList.remove('border-earth-gray/30');
             circle.classList.add('border-seafoam-mist', 'bg-seafoam-mist', 'text-deep-forest');
@@ -14,9 +13,7 @@ document.querySelectorAll('ul li').forEach(item => {
             iconSpan.style.fontVariationSettings = "'FILL' 1";
             circle.appendChild(iconSpan);
             text.classList.add('line-through', 'opacity-60');
-        } 
-        
-        else {
+        } else {
             circle.innerHTML = '';
             circle.classList.remove('border-seafoam-mist', 'bg-seafoam-mist', 'text-deep-forest');
             circle.classList.add('border-earth-gray/30');
