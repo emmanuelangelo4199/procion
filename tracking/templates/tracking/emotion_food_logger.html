@@ -129,47 +129,25 @@
     <body class="bg-sanctuary-white font-body-md text-on-surface selection:bg-seafoam-mist/30">
         <!-- Desktop Navigation Sidebar -->
         <aside class="hidden md:flex h-screen w-20 lg:w-72 fixed left-0 top-0 flex-col bg-sanctuary-white border-r border-soft-sage/40 py-12 px-8 z-40">
-            <div class="mb-16">
-                <a href="{% url 'dashboard' %}" class="font-display-lg text-3xl text-deep-forest italic tracking-tight lg:block hidden">Porcion</a>
-                <a href="{% url 'dashboard' %}" class="font-display-lg text-3xl text-deep-forest italic tracking-tight lg:hidden block">P.</a>
-            </div>
+            <div class="mb-16"><span class="font-display-lg text-3xl text-deep-forest italic tracking-tight lg:block hidden">Porcion</span><span class="font-display-lg text-3xl text-deep-forest italic tracking-tight lg:hidden block">P.</span></div>
             <nav class="flex-1 space-y-8">
-                <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="{% url 'dashboard' %}">
-                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="grid_view">grid_view</span>
-                    <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Dashboard</span>
-                </a>
-                <a class="group flex items-center gap-4 text-deep-forest font-semibold" href="{% url 'journal' %}">
-                    <span class="material-symbols-outlined text-2xl" data-icon="edit_note">edit_note</span>
-                    <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden border-b border-deep-forest">Log Entry</span>
-                </a>
-                <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="{% url 'insights' %}">
-                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="auto_graph">auto_graph</span>
-                    <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Progress</span>
-                </a>
-                <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="{% url 'circle' %}">
-                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="spa">spa</span>
-                    <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Circle</span>
-                </a>
+                <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="grid_view">grid_view</span><span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Dashboard</span></a>
+                <a class="group flex items-center gap-4 text-deep-forest font-semibold" href="#"><span class="material-symbols-outlined text-2xl" data-icon="edit_note">edit_note</span><span class="font-label-md text-sm tracking-wide uppercase lg:block hidden border-b border-deep-forest">Log Entry</span></a>
+                <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="auto_graph">auto_graph</span><span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Progress</span></a>
+                <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="spa">spa</span><span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Circle</span></a>
             </nav>
             <div class="pt-10 border-t border-soft-sage/30">
-                <a href="{% url 'profile' %}" class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-soft-sage/40 border border-soft-sage/20 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-earth-gray" data-icon="person">person</span>
-                    </div>
-                    <div class="lg:block hidden">
-                        <p class="font-label-md text-sm text-deep-forest">{{ request.user.name }}</p>
-                        <p class="text-xs font-caption text-earth-gray">Daily Journaler</p>
-                    </div>
-                </a>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-soft-sage/40 border border-soft-sage/20 flex items-center justify-center"><span class="material-symbols-outlined text-earth-gray" data-icon="person">person</span></div>
+                    <div class="lg:block hidden"><p class="font-label-md text-sm text-deep-forest">Angelo Emmanuel</p><p class="text-xs font-caption text-earth-gray">Daily Journaler</p></div>
+                </div>
             </div>
         </aside>
         <!-- Top Mobile Navigation -->
         <nav class="md:hidden bg-sanctuary-white fixed top-0 w-full z-50 border-b border-soft-sage/30">
             <div class="flex justify-between items-center h-16 px-margin-mobile">
-                <a href="{% url 'dashboard' %}" class="font-display-lg text-2xl text-deep-forest italic">Porcion</a>
-                <a href="{% url 'profile' %}" class="p-2 hover:bg-soft-sage/30 rounded-full" aria-label="Open profile">
-                    <span class="material-symbols-outlined text-deep-forest" data-icon="menu">menu</span>
-                </a>
+                <span class="font-display-lg text-2xl text-deep-forest italic">Porcion</span>
+                <button class="p-2 hover:bg-soft-sage/30 rounded-full"><span class="material-symbols-outlined text-deep-forest" data-icon="menu">menu</span></button>
             </div>
         </nav>
         <!-- Main Content Canvas -->
@@ -177,53 +155,18 @@
             <div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
                 <!-- Left Content: Entry Form -->
                 <article class="xl:col-span-8 space-y-20">
-                    <header class="max-w-xl space-y-4">
-                        <h1 class="font-display-lg text-5xl md:text-6xl text-deep-forest leading-tight">Restorative Entry</h1>
-                        <p class="font-body-lg text-earth-gray/80 italic leading-relaxed">A sanctuary for your thoughts. Take three soft breaths before you begin.</p>
-                    </header>
-                    {% if messages %}
-                    <div class="space-y-3 max-w-xl">
-                        {% for message in messages %}
-                        <p class="text-sm font-label-md {% if message.tags == 'success' %}text-secondary{% else %}text-error{% endif %}">{{ message }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% if form.errors %}
-                    <div class="max-w-xl rounded-2xl border border-error/20 bg-error-container/40 px-5 py-4">
-                        <p class="text-sm font-label-md text-error">Please choose a mood and add a short sensory reflection before logging.</p>
-                    </div>
-                    {% endif %}
-                    <form method="post" enctype="multipart/form-data" class="space-y-16" id="restorative-entry-form">
-                        {% csrf_token %}
-                        {{ form.emotion }}
+                    <header class="max-w-xl space-y-4"><h1 class="font-display-lg text-5xl md:text-6xl text-deep-forest leading-tight">Restorative Entry</h1><p class="font-body-lg text-earth-gray/80 italic leading-relaxed">A sanctuary for your thoughts. Take three soft breaths before you begin.</p></header>
+                    <div class="space-y-16">
                         <!-- Step 1: Emotion Selection -->
                         <section class="space-y-8">
                             <h2 class="font-headline-md text-3xl text-deep-forest">How are you feeling right now?</h2>
                             <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                                <button type="button" data-emotion="STRESSED" class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)">
-                                    <span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="sentiment_dissatisfied">sentiment_dissatisfied</span>
-                                    <span class="font-label-md text-xs uppercase tracking-wider">Stressed</span>
-                                </button>
-                                <button type="button" data-emotion="BORED" class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)">
-                                    <span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="panorama_fish_eye">panorama_fish_eye</span>
-                                    <span class="font-label-md text-xs uppercase tracking-wider">Bored</span>
-                                </button>
-                                <button type="button" data-emotion="CALM" class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)">
-                                    <span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="potted_plant">potted_plant</span>
-                                    <span class="font-label-md text-xs uppercase tracking-wider">Calm</span>
-                                </button>
-                                <button type="button" data-emotion="HAPPY" class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)">
-                                    <span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="wb_sunny">wb_sunny</span>
-                                    <span class="font-label-md text-xs uppercase tracking-wider">Happy</span>
-                                </button>
-                                <button type="button" data-emotion="SAD" class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)">
-                                    <span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="cloud">cloud</span>
-                                    <span class="font-label-md text-xs uppercase tracking-wider">Sad</span>
-                                </button>
-                                <button type="button" data-emotion="TIRED" class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)">
-                                    <span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="bedtime">bedtime</span>
-                                    <span class="font-label-md text-xs uppercase tracking-wider">Tired</span>
-                                </button>
+                                <button class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)"><span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="sentiment_dissatisfied">sentiment_dissatisfied</span><span class="font-label-md text-xs uppercase tracking-wider">Stressed</span></button>
+                                <button class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)"><span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="panorama_fish_eye">panorama_fish_eye</span><span class="font-label-md text-xs uppercase tracking-wider">Bored</span></button>
+                                <button class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)"><span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="potted_plant">potted_plant</span><span class="font-label-md text-xs uppercase tracking-wider">Calm</span></button>
+                                <button class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)"><span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="wb_sunny">wb_sunny</span><span class="font-label-md text-xs uppercase tracking-wider">Happy</span></button>
+                                <button class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)"><span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="cloud">cloud</span><span class="font-label-md text-xs uppercase tracking-wider">Sad</span></button>
+                                <button class="emotion-chip group flex flex-col items-center justify-center p-5 bg-white border border-soft-sage/40 rounded-2xl hover:border-deep-forest/40 transition-all duration-300" onclick="toggleEmotion(this)"><span class="material-symbols-outlined text-2xl mb-2 text-earth-gray group-hover:scale-110 transition-transform" data-icon="bedtime">bedtime</span><span class="font-label-md text-xs uppercase tracking-wider">Tired</span></button>
                             </div>
                         </section>
                         <!-- Step 2: Food Description -->
@@ -231,64 +174,39 @@
                             <h2 class="font-headline-md text-3xl text-deep-forest">What are you eating?</h2>
                             <div class="space-y-10">
                                 <div class="relative">
-                                    {{ form.food_description }}
+                                    <textarea class="w-full h-32 bg-transparent border-0 border-b border-soft-sage/60 p-0 font-headline-sm text-2xl text-deep-forest placeholder:text-outline-variant focus:ring-0 focus:border-deep-forest transition-all resize-none" placeholder="Describe the flavors, the warmth..."></textarea>
                                     <label class="absolute -top-6 left-0 text-xs font-label-md uppercase tracking-widest text-earth-gray/60">Sensory Reflection</label>
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div class="relative group h-40 bg-white/50 border border-dashed border-soft-sage rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-soft-sage/20 transition-all overflow-hidden" id="food-image-dropzone">
-                                        <img id="food-image-preview" alt="Meal preview" class="absolute inset-0 w-full h-full object-cover hidden"/>
-                                        <span class="material-symbols-outlined text-3xl text-earth-gray mb-3 relative z-10" data-icon="add_a_photo" id="food-image-icon">add_a_photo</span>
-                                        <span class="font-label-md text-xs tracking-widest uppercase text-earth-gray relative z-10" id="food-image-label">Capture the Moment</span>
-                                        {{ form.food_image }}
-                                    </div>
-                                    <div class="p-6 bg-soft-sage/10 rounded-2xl border border-soft-sage/30 flex items-center">
-                                        <p class="text-caption italic text-earth-gray leading-relaxed">"Eating mindfully is not just about what we eat, but how we connect with our nourishment."</p>
-                                    </div>
+                                    <div class="relative group h-40 bg-white/50 border border-dashed border-soft-sage rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-soft-sage/20 transition-all"><span class="material-symbols-outlined text-3xl text-earth-gray mb-3" data-icon="add_a_photo">add_a_photo</span><span class="font-label-md text-xs tracking-widest uppercase text-earth-gray">Capture the Moment</span><input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/></div>
+                                    <div class="p-6 bg-soft-sage/10 rounded-2xl border border-soft-sage/30 flex items-center"><p class="text-caption italic text-earth-gray leading-relaxed">"Eating mindfully is not just about what we eat, but how we connect with our nourishment."</p></div>
                                 </div>
                             </div>
                         </section>
                         <!-- Save Action -->
-                        <div class="pt-12">
-                            <button type="submit" class="px-16 py-5 bg-deep-forest text-sanctuary-white rounded-full font-label-md text-sm tracking-widest uppercase hover:bg-secondary transition-all active:scale-95 shadow-xl shadow-deep-forest/10">Log Reflection</button>
-                        </div>
-                    </form>
+                        <div class="pt-12"><button class="px-16 py-5 bg-deep-forest text-sanctuary-white rounded-full font-label-md text-sm tracking-widest uppercase hover:bg-secondary transition-all active:scale-95 shadow-xl shadow-deep-forest/10">Log Reflection</button></div>
+                    </div>
                 </article>
                 <!-- Right Sidebar: Editorial Cards -->
                 <aside class="hidden xl:block xl:col-span-4">
                     <div class="sticky top-32 space-y-10">
                         <!-- Mindful Tip Card -->
                         <div class="bg-white p-8 rounded-3xl border border-soft-sage/40 shadow-sm space-y-6">
-                            <div class="flex items-center gap-2 text-deep-forest">
-                                <span class="material-symbols-outlined" data-icon="temp_preferences_eco">temp_preferences_eco</span>
-                                <h3 class="font-label-md text-sm tracking-widest uppercase">Mindful Tip</h3>
-                            </div>
+                            <div class="flex items-center gap-2 text-deep-forest"><span class="material-symbols-outlined" data-icon="temp_preferences_eco">temp_preferences_eco</span><h3 class="font-label-md text-sm tracking-widest uppercase">Mindful Tip</h3></div>
                             <p class="font-body-md text-earth-gray leading-relaxed italic">"Before taking your first bite, pause for three breaths. Observe the colors and scents of your nourishment."</p>
-                            <div class="h-48 w-full rounded-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-700">
-                                <img alt="Balanced meal" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSt-KOx45cw9syUFnW1Hqev24kQBPuEV8eK4aApHk5wupuwohi-N6sTKbjFPG-lTSXmaK7NRYa61F7vPihR7nOcZ3ldpIZn-WZqaL4rFmXhtyH_k8pzcJIKDrftt2cmHezSPqyZG5HdcAcWz_15_gORIPzR8V4cxkdbix-ScPFvSwZcztOnAcEMbPc2HsrEHyP7ler5DLpzQPF3ALw0B5PHiubdny0Tf-7JuOD23bVPPruvUPFCSVoUkEpy3TuPN1F4-mMqrdkUOj6"/>
-                            </div>
+                            <div class="h-48 w-full rounded-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-700"><img alt="Balanced meal" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSt-KOx45cw9syUFnW1Hqev24kQBPuEV8eK4aApHk5wupuwohi-N6sTKbjFPG-lTSXmaK7NRYa61F7vPihR7nOcZ3ldpIZn-WZqaL4rFmXhtyH_k8pzcJIKDrftt2cmHezSPqyZG5HdcAcWz_15_gORIPzR8V4cxkdbix-ScPFvSwZcztOnAcEMbPc2HsrEHyP7ler5DLpzQPF3ALw0B5PHiubdny0Tf-7JuOD23bVPPruvUPFCSVoUkEpy3TuPN1F4-mMqrdkUOj6"/></div>
                         </div>
                         <!-- Progress Card -->
                         <div class="bg-deep-forest p-8 rounded-3xl text-sanctuary-white space-y-8">
                             <h4 class="font-label-md text-xs uppercase tracking-[0.2em] opacity-70">Your Journey</h4>
                             <div class="space-y-5">
-                                <div class="flex justify-between items-end">
-                                    <span class="text-sm font-label-md">Weekly Consistency</span>
-                                    <span class="text-2xl font-display-lg italic">{{ weekly_consistency }}%</span>
-                                </div>
+                                <div class="flex justify-between items-end"><span class="text-sm font-label-md">Weekly Consistency</span><span class="text-2xl font-display-lg italic">85%</span></div>
                                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                                    <div class="h-full bg-seafoam-mist rounded-full" style="width: {{ weekly_consistency }}%">
-
-                                    </div>
+                                    <div class="h-full bg-seafoam-mist w-[85%] rounded-full"></div>
                                 </div>
-                                <p class="text-sm font-body-md opacity-80 leading-relaxed">
-                                    {% if total_logs %}
-                                    You've logged {{ total_logs }} mindful {{ total_logs|pluralize:"entry,entries" }}. Each entry is a step toward conscious living.
-                                    {% else %}
-                                    Your first entry starts the journey. Log a reflection to begin building patterns.
-                                    {% endif %}
-                                </p>
+                                <p class="text-sm font-body-md opacity-80 leading-relaxed">You've logged 12 mindful entries this week. Each entry is a step toward conscious living.</p>
                             </div>
-                            <a href="{% url 'insights' %}" class="block w-full py-3 border border-white/20 rounded-full text-xs tracking-widest uppercase hover:bg-white/10 transition-all text-center">View Insights</a>
+                            <button class="w-full py-3 border border-white/20 rounded-full text-xs tracking-widest uppercase hover:bg-white/10 transition-all">View Insights</button>
                         </div>
                     </div>
                 </aside>
@@ -308,19 +226,15 @@
                 <span class="material-symbols-outlined" data-icon="auto_graph">auto_graph</span>
                 <span class="font-caption text-[10px] uppercase tracking-tighter">Insight</span>
             </a>
-            <a class="flex flex-col items-center gap-1 text-earth-gray" href="{% url 'circle' %}">
-                <span class="material-symbols-outlined" data-icon="spa">spa</span>
-                <span class="font-caption text-[10px] uppercase tracking-tighter">Circle</span>
-            </a>
         </div>
         <footer class="w-full py-20 border-t border-soft-sage/20 bg-sanctuary-white mt-12">
             <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto gap-8 md:pl-20 lg:pl-72">
-                <a href="{% url 'dashboard' %}" class="font-display-lg text-2xl text-deep-forest italic">Porcion</a>
+                <span class="font-display-lg text-2xl text-deep-forest italic">Porcion</span>
                 <p class="font-caption text-xs tracking-wide text-earth-gray/60 uppercase">© 2026 Porcion. Restorative Wellness.</p>
                 <div class="flex gap-8 text-xs tracking-widest uppercase text-earth-gray/60">
-                    <a class="hover:text-deep-forest transition-colors" href="{% url 'profile' %}">Privacy</a>
-                    <a class="hover:text-deep-forest transition-colors" href="{% url 'profile' %}">Terms</a>
-                    <a class="hover:text-deep-forest transition-colors" href="{% url 'profile' %}">Support</a>
+                    <a class="hover:text-deep-forest transition-colors" href="#">Privacy</a>
+                    <a class="hover:text-deep-forest transition-colors" href="#">Terms</a>
+                    <a class="hover:text-deep-forest transition-colors" href="#">Support</a>
                 </div>
             </div>
         </footer>
