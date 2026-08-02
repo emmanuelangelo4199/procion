@@ -46,6 +46,7 @@ class UserProfile(models.Model):
     preferences = models.JSONField(default=dict, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    date_of_birth = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.email} Profile"
