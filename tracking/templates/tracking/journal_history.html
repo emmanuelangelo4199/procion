@@ -1,0 +1,508 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="en">
+    <head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Journal History | Porcion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#d0e9d4",
+                    "on-surface-variant": "#434843",
+                    "background": "#f8faf8",
+                    "on-secondary-container": "#5e6553",
+                    "surface-container": "#eceeec",
+                    "surface-container-high": "#e6e9e7",
+                    "tertiary-fixed-dim": "#d6c4aa",
+                    "primary-fixed-dim": "#b4cdb8",
+                    "tertiary-container": "#352a18",
+                    "tertiary-fixed": "#f3e0c4",
+                    "tertiary": "#1f1606",
+                    "primary-container": "#1b3022",
+                    "on-tertiary-container": "#a19179",
+                    "surface-variant": "#e1e3e1",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#eff1ef",
+                    "outline-variant": "#c3c8c1",
+                    "surface-dim": "#d8dad9",
+                    "on-primary-container": "#819986",
+                    "secondary-container": "#dce2cc",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#424939",
+                    "on-tertiary-fixed-variant": "#514531",
+                    "inverse-surface": "#2e3130",
+                    "surface-tint": "#4d6453",
+                    "secondary-fixed-dim": "#c2c9b4",
+                    "on-primary-fixed-variant": "#364c3c",
+                    "inverse-primary": "#b4cdb8",
+                    "surface-container-low": "#f2f4f2",
+                    "primary": "#061b0e",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#0b2013",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#171d10",
+                    "surface": "#f8faf8",
+                    "on-error-container": "#93000a",
+                    "secondary": "#5a614f",
+                    "on-tertiary-fixed": "#241a09",
+                    "surface-bright": "#f8faf8",
+                    "surface-container-highest": "#e1e3e1",
+                    "outline": "#737973",
+                    "on-surface": "#191c1b",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#191c1b",
+                    "secondary-fixed": "#dee5cf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1140px",
+                    "margin-mobile": "24px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "display": ["EB Garamond"],
+                    "headline-md": ["EB Garamond"],
+                    "body-md": ["Manrope"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "headline-lg": ["EB Garamond"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 10px 40px rgba(45, 52, 51, 0.04);
+        }
+        .editorial-shadow:hover {
+            box-shadow: 0 20px 50px rgba(45, 52, 51, 0.08);
+        }
+        .active-pill {
+            background-color: #061b0e;
+            color: #ffffff;
+        }
+        .mood-filter:not(.active-pill):hover {
+            background-color: #eceeec;
+        }
+        body {
+            background-color: #f8faf8;
+            color: #191c1b;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background antialiased overflow-x-hidden">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[#f8faf9] border-r border-[#eaefee] p-6 flex flex-col space-y-8 z-40 hidden md:flex">
+<div class="flex flex-col space-y-1">
+<h1 class="text-[32px] font-display font-bold text-primary tracking-tighter">Porcion</h1>
+<p class="font-label-sm text-secondary uppercase tracking-widest text-[10px]">Restorative Wellness</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-[#eaefee] rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<!-- Active State: Journal (Log) -->
+<a class="flex items-center space-x-3 px-4 py-3 bg-white text-primary shadow-sm rounded-xl font-bold transition-all duration-200 border border-[#eaefee]/50" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md">Journal</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-[#eaefee] rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md">My Circle</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-[#eaefee] rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-md">Progress</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-[#eaefee] rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md">Profile</span>
+</a>
+</nav>
+
+</aside>
+<!-- Mobile Header -->
+<header class="md:hidden fixed top-0 w-full bg-[#f8faf9]/80 backdrop-blur-xl z-50 px-6 h-16 flex justify-between items-center border-b border-[#eaefee]">
+<h1 class="text-2xl font-display font-bold text-primary tracking-tighter">Porcion</h1>
+<button class="p-2 text-primary" id="mobileMenuBtn">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 md:pt-16 min-h-screen px-6 md:px-margin-desktop pb-20">
+<div class="max-w-[1140px] mx-auto space-y-12">
+<!-- Page Header -->
+<section class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+<div class="space-y-2">
+<span class="font-label-sm text-secondary-fixed-dim uppercase tracking-[0.2em] block">Restorative Journal</span>
+<h2 class="font-headline-lg text-primary text-4xl md:text-5xl">Your Journal</h2>
+<p class="font-body-md text-secondary italic opacity-80">Every entry is a step forward on your path to restoration.</p>
+</div>
+<button class="bg-primary text-white px-8 py-4 rounded-full font-label-md flex items-center space-x-2 hover:scale-[1.02] active:scale-95 transition-all w-fit shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="">New Entry</span>
+</button>
+</section>
+<!-- Filter & Sort Bar -->
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white/50 p-2 rounded-2xl border border-surface-container-high">
+<!-- Mood Filter Chips -->
+<div class="flex items-center overflow-x-auto no-scrollbar space-x-2 px-2 py-1" id="moodFilters">
+<button class="mood-filter active-pill whitespace-nowrap px-5 py-2 rounded-full font-label-sm transition-colors duration-200" data-mood="All">All</button>
+<button class="mood-filter whitespace-nowrap px-5 py-2 rounded-full font-label-sm transition-colors duration-200" data-mood="Stressed">Stressed</button>
+<button class="mood-filter whitespace-nowrap px-5 py-2 rounded-full font-label-sm transition-colors duration-200" data-mood="Bored">Bored</button>
+<button class="mood-filter whitespace-nowrap px-5 py-2 rounded-full font-label-sm transition-colors duration-200" data-mood="Calm">Calm</button>
+<button class="mood-filter whitespace-nowrap px-5 py-2 rounded-full font-label-sm transition-colors duration-200" data-mood="Happy">Happy</button>
+<button class="mood-filter whitespace-nowrap px-5 py-2 rounded-full font-label-sm transition-colors duration-200" data-mood="Sad">Sad</button>
+<button class="mood-filter whitespace-nowrap px-5 py-2 rounded-full font-label-sm transition-colors duration-200" data-mood="Tired">Tired</button>
+</div>
+<!-- Sort Toggle -->
+<div class="flex items-center bg-surface-container-low rounded-full p-1 self-end lg:self-auto">
+<button class="sort-btn px-6 py-2 rounded-full font-label-sm bg-white shadow-sm text-primary transition-all duration-300" data-sort="Newest">Newest</button>
+<button class="sort-btn px-6 py-2 rounded-full font-label-sm text-secondary hover:text-primary transition-all duration-300" data-sort="Oldest">Oldest</button>
+</div>
+</section>
+<!-- Entry Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="entryGrid">
+<!-- Entry Card 1 -->
+<article class="journal-card group bg-white rounded-2xl editorial-shadow overflow-hidden transition-all duration-300 flex flex-col duration-700 opacity-100 translate-y-0" data-mood="Calm">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A serene, minimalist flat lay of a leather-bound journal and a sprig of dried lavender on a light grey stone surface. Soft, morning sunlight filters through a window, creating gentle shadows. The aesthetic is high-end, editorial, and restorative with a palette of soft greys, sage green, and warm cream." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD11XwQVe1DsuvBnTIhBld9mdVa1KNhxmE2hUb7SNOQgm_4PPjmbPsag5kiBRL7xPlX7OGCKh-K7MUEORJ8Nwpj5aQ-RlnBvFHEaLpBL__K-yTpVg2VU34Tivhso-TtqhEwAeeFZibpDKkjjB9XsE3JLBBJqzZ6pheSP9DHfT9FQfgXaSz-0mUBF0zpR-u0floSsUJQH33bSIp_v5SKK65M3KNLy5IxMdviJfR52itf05gmmVfWE0T0gA">
+<div class="absolute top-4 left-4">
+<span class="bg-[#e9f0ec] text-[#33685d] px-3 py-1 rounded-full font-label-sm">Calm</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col space-y-4">
+<time class="font-label-sm text-secondary opacity-60">14 Aug 2026</time>
+<h3 class="font-headline-md text-primary leading-tight">Finding stillness in the morning routine</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-3 leading-relaxed">Today I focused on the texture of my coffee cup and the way the light hit the floor. It's these small moments of awareness that seem to make the biggest difference in how I approach the rest of my day...</p>
+<hr class="border-surface-container mt-auto">
+<div class="flex justify-between items-center pt-4">
+<div class="flex items-center space-x-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm italic truncate max-w-[120px]">Morning sunlight</span>
+</div>
+<a class="font-label-md text-primary hover:translate-x-1 transition-transform inline-flex items-center space-x-1" href="#">
+<span class="">Read more</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Entry Card 2 -->
+<article class="journal-card group bg-white rounded-2xl editorial-shadow overflow-hidden transition-all duration-300 flex flex-col duration-700 opacity-100 translate-y-0" data-mood="Stressed">
+<div class="p-8 flex-grow flex flex-col space-y-4">
+<div class="flex justify-between items-start">
+<span class="bg-error-container text-error px-3 py-1 rounded-full font-label-sm">Stressed</span>
+<time class="font-label-sm text-secondary opacity-60">12 Aug 2026</time>
+</div>
+<h3 class="font-headline-md text-primary leading-tight">Navigating the mid-week rush</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-3 leading-relaxed">The deadlines are piling up and my internal dialogue has turned sharp. I'm writing this to remind myself that my worth isn't tied to my productivity metrics. Breathing into the tension...</p>
+<hr class="border-surface-container mt-auto">
+<div class="flex justify-between items-center pt-4">
+<div class="flex items-center space-x-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm italic truncate max-w-[120px]">Warm chamomile tea</span>
+</div>
+<a class="font-label-md text-primary hover:translate-x-1 transition-transform inline-flex items-center space-x-1" href="#">
+<span class="">Read more</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Entry Card 3 -->
+<article class="journal-card group bg-white rounded-2xl editorial-shadow overflow-hidden transition-all duration-300 flex flex-col duration-700 opacity-100 translate-y-0" data-mood="Happy">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A macro photograph of fresh, vibrant mint leaves and slices of citrus in a glass of sparking water. Bubbles are frozen in motion, illuminated by bright, clear natural light. The background is a clean, white-tiled wall. The mood is refreshing, optimistic, and energetic, following the Porcion color palette of mint, white, and moss." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Wps6f7EW6mKDcegUIeFyHVvCqLMlE4eS5Gck9u9bP16RCRWgcGSMQG7_h0oms-mGAs0wCft6Li44h0NofxEImcluXC91BsPUPVWTcJZdOvkikbJ6pihOpmeWW1cn3QtO7MITBGqBkaVks1xY3rBFMuJW0cHfNW-5oYbnkIBu_AsqgYbjQFFMZiVLPYYoF5DjEiV_k5fu2gjA909nxSXwhXjomLtmuiKq96RuuG5lYvOdTB8WchYFVg">
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-secondary px-3 py-1 rounded-full font-label-sm">Happy</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col space-y-4">
+<time class="font-label-sm text-secondary opacity-60">10 Aug 2026</time>
+<h3 class="font-headline-md text-primary leading-tight">Celebrating small victories</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-3 leading-relaxed">Finally hit my goal of consistent meditation for seven days straight! The clarity I feel is remarkable. It's funny how the world looks different when you're at peace with yourself...</p>
+<hr class="border-surface-container mt-auto">
+<div class="flex justify-between items-center pt-4">
+<div class="flex items-center space-x-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm italic truncate max-w-[120px]">7-day streak</span>
+</div>
+<a class="font-label-md text-primary hover:translate-x-1 transition-transform inline-flex items-center space-x-1" href="#">
+<span class="">Read more</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Entry Card 4 -->
+<article class="journal-card group bg-white rounded-2xl editorial-shadow overflow-hidden transition-all duration-300 flex flex-col duration-700 opacity-100 translate-y-0" data-mood="Tired">
+<div class="p-8 flex-grow flex flex-col space-y-4">
+<div class="flex justify-between items-start">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm">Tired</span>
+<time class="font-label-sm text-secondary opacity-60">08 Aug 2026</time>
+</div>
+<h3 class="font-headline-md text-primary leading-tight">Permission to rest</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-3 leading-relaxed">Today the energy just wasn't there. Instead of pushing through, I'm choosing to listen to my body. An early night and no screens. It's restorative to say 'no' to the noise...</p>
+<hr class="border-surface-container mt-auto">
+<div class="flex justify-between items-center pt-4">
+<div class="flex items-center space-x-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm italic truncate max-w-[120px]">Heavy blankets</span>
+</div>
+<a class="font-label-md text-primary hover:translate-x-1 transition-transform inline-flex items-center space-x-1" href="#">
+<span class="">Read more</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Entry Card 5 -->
+<article class="journal-card group bg-white rounded-2xl editorial-shadow overflow-hidden transition-all duration-300 flex flex-col duration-700 opacity-100 translate-y-0" data-mood="Bored">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A clean, minimalist workspace featuring an empty ceramic bowl and a single wooden spoon resting on a textured linen tablecloth. The light is diffused and soft, coming from the side. The composition is asymmetrical and high-end editorial, with a quiet, contemplative atmosphere. Colors are muted earth tones, soft whites, and light oak wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWuNlsFBpyRh9Q8_Cil87_bn8uUu3-cISQijhC6B9ApuUOVPjauBUJouvIhHMtIiAo7y6bPEnewSrOgNkhB3b_tRukPcljB8M5hToJo7B9Jt588TS1sTdp-rvmoabteaBkGZzElwo20CZeCf39BcQ9CU78P7zvhqB7CHUNENo32rooZCSktPw6yDReLa2hru1TiWJzui7rzaHs1m7Kah6C_aMNjEhHBWO3wAregI1HGjVRn4tys_RctQ">
+<div class="absolute top-4 left-4">
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-sm">Bored</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col space-y-4">
+<time class="font-label-sm text-secondary opacity-60">05 Aug 2026</time>
+<h3 class="font-headline-md text-primary leading-tight">The space between thoughts</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-3 leading-relaxed">A slow day. Not much happened, but in the emptiness, I found a bit of room to just 'be'. Sometimes boredom is just a doorway to a new kind of creative spark that I've been ignoring...</p>
+<hr class="border-surface-container mt-auto">
+<div class="flex justify-between items-center pt-4">
+<div class="flex items-center space-x-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm italic truncate max-w-[120px]">Unstructured time</span>
+</div>
+<a class="font-label-md text-primary hover:translate-x-1 transition-transform inline-flex items-center space-x-1" href="#">
+<span class="">Read more</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Entry Card 6 -->
+<article class="journal-card group bg-white rounded-2xl editorial-shadow overflow-hidden transition-all duration-300 flex flex-col duration-700 opacity-100 translate-y-0" data-mood="Sad">
+<div class="p-8 flex-grow flex flex-col space-y-4">
+<div class="flex justify-between items-start">
+<span class="bg-tertiary-fixed text-tertiary-container px-3 py-1 rounded-full font-label-sm">Sad</span>
+<time class="font-label-sm text-secondary opacity-60">02 Aug 2026</time>
+</div>
+<h3 class="font-headline-md text-primary leading-tight">Honoring the heavy days</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-3 leading-relaxed">It's okay to not be okay. Today I'm sitting with some sadness without trying to 'fix' it immediately. Restoration involves acknowledging all parts of the journey, even the difficult ones...</p>
+<hr class="border-surface-container mt-auto">
+<div class="flex justify-between items-center pt-4">
+<div class="flex items-center space-x-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm italic truncate max-w-[120px]">Comforting music</span>
+</div>
+<a class="font-label-md text-primary hover:translate-x-1 transition-transform inline-flex items-center space-x-1" href="#">
+<span class="">Read more</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</section>
+<!-- Empty State (Hidden by default) -->
+<section class="hidden flex-col items-center justify-center py-32 space-y-6 text-center" id="emptyState">
+<div class="bg-surface-container w-24 h-24 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-5xl text-primary/30" data-icon="menu_book">menu_book</span>
+</div>
+<h3 class="font-headline-md text-primary">Your journal awaits</h3>
+<p class="font-body-md text-secondary max-w-sm">There are no entries in this category yet. Start your journey of restoration today.</p>
+<button class="bg-primary text-white px-8 py-3 rounded-full font-label-md flex items-center space-x-2 hover:scale-[1.02] transition-all">
+<span class="">Begin Writing</span>
+</button>
+</section>
+<!-- Pagination -->
+<nav class="flex items-center justify-center space-x-2 py-12">
+<button class="p-2 text-secondary hover:text-primary transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center space-x-1">
+<button class="w-10 h-10 rounded-full font-label-md bg-primary text-white">1</button>
+<button class="w-10 h-10 rounded-full font-label-md text-secondary hover:bg-surface-container transition-colors">2</button>
+<button class="w-10 h-10 rounded-full font-label-md text-secondary hover:bg-surface-container transition-colors">3</button>
+<span class="px-2 text-secondary">...</span>
+<button class="w-10 h-10 rounded-full font-label-md text-secondary hover:bg-surface-container transition-colors">12</button>
+</div>
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-white border-t border-[#eaefee] flex justify-around items-center h-16 z-50">
+<a class="flex flex-col items-center space-y-1 text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center space-y-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="text-[10px] font-label-sm">Journal</span>
+</a>
+<a class="flex flex-col items-center space-y-1 text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-[10px] font-label-sm">Circle</span>
+</a>
+<a class="flex flex-col items-center space-y-1 text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Mobile Navigation Overlay (Simulated) -->
+<div class="fixed inset-0 bg-primary/20 backdrop-blur-sm z-[60] hidden md:hidden" id="mobileOverlay">
+<div class="bg-white h-full w-4/5 p-8 flex flex-col">
+<div class="flex justify-between items-center mb-12">
+<h1 class="text-2xl font-display font-bold text-primary tracking-tighter">Porcion</h1>
+<button id="closeMenuBtn">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="space-y-6">
+<a class="flex items-center space-x-4 text-xl font-headline-md text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center space-x-4 text-xl font-headline-md text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="">Journal</span>
+</a>
+<a class="flex items-center space-x-4 text-xl font-headline-md text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="">My Circle</span>
+</a>
+<a class="flex items-center space-x-4 text-xl font-headline-md text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="">Profile</span>
+</a>
+</nav>
+</div>
+</div>
+<script>
+        // Mood Filtering Logic
+        const filterButtons = document.querySelectorAll('.mood-filter');
+        const journalCards = document.querySelectorAll('.journal-card');
+        const entryGrid = document.getElementById('entryGrid');
+        const emptyState = document.getElementById('emptyState');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(b => b.classList.remove('active-pill'));
+                btn.classList.add('active-pill');
+
+                const mood = btn.getAttribute('data-mood');
+                let visibleCount = 0;
+
+                journalCards.forEach(card => {
+                    if (mood === 'All' || card.getAttribute('data-mood') === mood) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Toggle empty state
+                if (visibleCount === 0) {
+                    entryGrid.style.display = 'none';
+                    emptyState.classList.remove('hidden');
+                    emptyState.classList.add('flex');
+                } else {
+                    entryGrid.style.display = 'grid';
+                    emptyState.classList.add('hidden');
+                    emptyState.classList.remove('flex');
+                }
+            });
+        });
+
+        // Sort Logic
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        sortButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sortButtons.forEach(b => {
+                    b.classList.remove('bg-white', 'shadow-sm', 'text-primary');
+                    b.classList.add('text-secondary');
+                });
+                btn.classList.add('bg-white', 'shadow-sm', 'text-primary');
+                btn.classList.remove('text-secondary');
+                
+                // In a real app, this would trigger a re-sort of the data
+                // For the UI demo, we'll just simulate a flicker or re-order
+                const container = document.getElementById('entryGrid');
+                const elements = Array.from(container.children);
+                container.innerHTML = '';
+                elements.reverse().forEach(el => container.appendChild(el));
+            });
+        });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const closeBtn = document.getElementById('closeMenuBtn');
+        const overlay = document.getElementById('mobileOverlay');
+
+        mobileBtn.addEventListener('click', () => overlay.classList.remove('hidden'));
+        closeBtn.addEventListener('click', () => overlay.classList.add('hidden'));
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '20px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        journalCards.forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+    </script>
+
+
+</body>
+</html>

@@ -142,7 +142,7 @@
                 <div class="hidden md:flex gap-8 items-center">
                     <nav class="flex gap-6">
                         <a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="{% url 'dashboard' %}">Dashboard</a>
-                        <a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="{% url 'journal' %}">Food &amp; Mood</a>
+                        <a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="{% url 'emotion' %}">Food &amp; Mood</a>
                         <a class="text-deep-forest font-bold font-label-md text-label-md" href="{% url 'insights' %}">Insights</a>
                         <a class="text-earth-gray font-normal hover:text-deep-forest transition-colors duration-200 font-label-md text-label-md" href="{% url 'circle' %}">Circle</a>
                     </nav>
@@ -170,12 +170,12 @@
                         <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                         <span class="font-label-md text-label-md">Dashboard</span>
                     </a>
-                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="{% url 'journal' %}"><span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span><span class="font-label-md text-label-md">Food &amp; Mood</span></a>
+                    <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="{% url 'emotion' %}"><span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span><span class="font-label-md text-label-md">Food &amp; Mood</span></a>
                     <a class="flex items-center gap-3 p-3 text-deep-forest font-bold border-b-2 border-deep-forest pb-1" href="{% url 'insights' %}"><span class="material-symbols-outlined" data-icon="insights">insights</span><span class="font-label-md text-label-md">Insights</span></a>
                     <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="{% url 'circle' %}"><span class="material-symbols-outlined" data-icon="groups">groups</span><span class="font-label-md text-label-md">Peer Circle</span></a>
                     <a class="flex items-center gap-3 p-3 text-earth-gray hover:bg-soft-sage/30 rounded-lg transition-all" href="{% url 'profile' %}"><span class="material-symbols-outlined" data-icon="settings">settings</span><span class="font-label-md text-label-md">Settings</span></a>
                 </nav>
-                <a href="{% url 'journal' %}" class="mt-12 block w-full py-4 bg-deep-forest text-sanctuary-white rounded-lg font-label-md text-label-md transition-opacity hover:opacity-90 text-center">Log Entry</a>
+                <a href="{% url 'emotion' %}" class="mt-12 block w-full py-4 bg-deep-forest text-sanctuary-white rounded-lg font-label-md text-label-md transition-opacity hover:opacity-90 text-center">Log Entry</a>
             </div>
         </aside>
         <!-- Main Content Canvas -->
@@ -287,7 +287,7 @@
         <!-- BottomNavBar (Mobile Only) -->
         <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-sanctuary-white/90 backdrop-blur-md border-t border-soft-sage md:hidden z-50">
             <a class="flex flex-col items-center justify-center text-earth-gray" href="{% url 'dashboard' %}"><span class="material-symbols-outlined" data-icon="home">home</span><span class="font-caption text-caption">Home</span></a>
-            <a class="flex flex-col items-center justify-center text-earth-gray" href="{% url 'journal' %}"><span class="material-symbols-outlined" data-icon="add_circle">add_circle</span><span class="font-caption text-caption">Log</span></a>
+            <a class="flex flex-col items-center justify-center text-earth-gray" href="{% url 'emotion' %}"><span class="material-symbols-outlined" data-icon="add_circle">add_circle</span><span class="font-caption text-caption">Log</span></a>
             <a class="flex flex-col items-center justify-center bg-seafoam-mist/40 text-deep-forest rounded-xl px-4 py-1" href="{% url 'insights' %}"><span class="material-symbols-outlined" data-icon="analytics">analytics</span><span class="font-caption text-caption">Insights</span></a>
             <a class="flex flex-col items-center justify-center text-earth-gray" href="{% url 'circle' %}"><span class="material-symbols-outlined" data-icon="group">group</span><span class="font-caption text-caption">Circle</span></a>
         </nav>

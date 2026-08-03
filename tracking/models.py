@@ -9,7 +9,7 @@ class Emotion(models.TextChoices):
     HAPPY = 'HAPPY', 'Happy'
     SAD = 'SAD', 'Sad'
     TIRED = 'TIRED', 'Tired'
-
+ 
 
 class FoodMoodLog(models.Model):
     """Captures data from the 'Restorative Entry' form."""
@@ -71,3 +71,26 @@ class InsightSummary(models.Model):
 
     def __str__(self):
         return f"Analytics Summary for {self.user.email}"
+
+
+class JournalEntry(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='journal_entries'
+    )
+    title = models.CharField(max_length=200, blank=True)
+    emotion = models.CharField(max_length=20, choices=Emotion.choices)
+    gratitude = models.TextField()
+    reflection = models.TextField()
+    healing_intention = models.CharField(max_length=500)
+    photo = models.ImageField(upload_to='journal/%Y/%m/%d', null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = "Journal Entry"
+        verbose_name_plural = "Journal Entries"
+
+    def __str__(self):
+        return f"{self.user.email} — {self.title or 'Untitled'} ({self.created_at.strftime('%Y-%m-%d')})"

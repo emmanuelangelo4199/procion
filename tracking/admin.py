@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import FoodMoodLog, InsightSummary
+from .models import FoodMoodLog, InsightSummary, JournalEntry
 
 
 @admin.register(FoodMoodLog)
@@ -16,3 +16,12 @@ class InsightSummaryAdmin(admin.ModelAdmin):
     list_display = ('user', 'weekly_consistency_score', 'total_logs_count', 'last_computed')
     search_fields = ('user__email',)
     readonly_fields = ('last_computed',)
+
+
+@admin.register(JournalEntry)
+class JournalEntryAdmin(admin.ModelAdmin):
+    list_display = ('user', 'title', 'emotion', 'created_at')
+    list_filter = ('emotion', 'created_at')
+    search_fields = ('user__email', 'title')
+    ordering = ('-created_at',)
+    readonly_fields = ('created_at',)

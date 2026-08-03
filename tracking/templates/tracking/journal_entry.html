@@ -1,0 +1,411 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Porcion | Restorative Journaling</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#737973",
+                    "secondary-fixed-dim": "#c2c9b4",
+                    "surface-container-highest": "#e1e3e1",
+                    "secondary-fixed": "#dee5cf",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3130",
+                    "on-secondary-fixed": "#171d10",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#f3e0c4",
+                    "secondary": "#5a614f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#d6c4aa",
+                    "tertiary-container": "#352a18",
+                    "on-primary-container": "#819986",
+                    "inverse-primary": "#b4cdb8",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#0b2013",
+                    "inverse-on-surface": "#eff1ef",
+                    "on-primary-fixed-variant": "#364c3c",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#514531",
+                    "background": "#f8faf8",
+                    "surface-bright": "#f8faf8",
+                    "on-secondary-container": "#5e6553",
+                    "surface-tint": "#4d6453",
+                    "surface-dim": "#d8dad9",
+                    "primary-fixed-dim": "#b4cdb8",
+                    "on-surface": "#191c1b",
+                    "tertiary": "#1f1606",
+                    "primary": "#061b0e",
+                    "surface-container-low": "#f2f4f2",
+                    "surface-container-high": "#e6e9e7",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434843",
+                    "primary-fixed": "#d0e9d4",
+                    "surface-variant": "#e1e3e1",
+                    "on-tertiary-fixed": "#241a09",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#dce2cc",
+                    "on-tertiary-container": "#a19179",
+                    "primary-container": "#1b3022",
+                    "surface": "#f8faf8",
+                    "outline-variant": "#c3c8c1",
+                    "on-secondary-fixed-variant": "#424939",
+                    "surface-container": "#eceeec",
+                    "on-background": "#191c1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "container-max": "1140px",
+                    "margin-mobile": "24px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display": ["EB Garamond"],
+                    "body-md": ["Manrope"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "label-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["EB Garamond"],
+                    "headline-lg": ["EB Garamond"]
+            },
+            "fontSize": {
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8faf8;
+            color: #191c1b;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-border {
+            border-right: 2px solid #061b0e;
+        }
+        @media (max-width: 1023px) {
+            .active-nav-border {
+                border-right: none;
+                background-color: #f2f4f2;
+                border-radius: 0.5rem;
+            }
+        }
+        .journal-textarea {
+            border: 1px solid #c3c8c1;
+            border-bottom: none;
+            background: transparent;
+            resize: none;
+        }
+        .journal-textarea:focus {
+            outline: none;
+            border-color: #061b0e;
+            box-shadow: none;
+        }
+        .bottom-only-input {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid #c3c8c1;
+            background: transparent;
+        }
+        .bottom-only-input:focus {
+            border-bottom: 2px solid #061b0e;
+            outline: none;
+            box-shadow: none;
+        }
+        .mood-chip-input:checked + label {
+            background-color: #dce2cc;
+            color: #1b3022;
+            border-color: #5a614f;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8faf8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e1e3e1;
+            border-radius: 10px;
+        }
+        #mobile-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- Mobile Header / Top Bar -->
+<header class="lg:hidden fixed top-0 left-0 right-0 h-16 bg-surface border-b border-outline-variant flex items-center justify-between px-6 z-[60]">
+<h1 class="font-display text-headline-md text-primary tracking-tight">Porcion</h1>
+<button class="material-symbols-outlined text-primary text-3xl" id="menu-toggle">menu</button>
+</header>
+<!-- Sidebar Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface border-r border-outline-variant flex flex-col py-10 px-8 z-50 transition-transform duration-300 -translate-x-full lg:translate-x-0" id="sidebar">
+<!-- Brand Header (Desktop) -->
+<div class="mb-12 hidden lg:block">
+<h1 class="font-display text-headline-md text-primary tracking-tight">Porcion</h1>
+<p class="text-label-sm text-secondary uppercase tracking-widest mt-1">Restorative Wellness</p>
+</div>
+<!-- Mobile Sidebar Header -->
+<div class="lg:hidden flex justify-between items-center mb-10">
+<span class="text-label-sm text-secondary uppercase tracking-widest">Navigation</span>
+<button class="material-symbols-outlined text-secondary" id="close-menu">close</button>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-grow space-y-4">
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all group p-2 lg:p-0" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 text-primary font-bold active-nav-border lg:-mr-8 lg:pr-8 transition-all p-2 lg:p-0" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-md">Journal</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all group p-2 lg:p-0" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md">Insights</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all group p-2 lg:p-0" href="#">
+<span class="material-symbols-outlined">auto_fix_high</span>
+<span class="font-label-md">Habits</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all group p-2 lg:p-0" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md">My Circle</span>
+</a>
+</nav>
+<!-- Footer Links -->
+<div class="mt-auto space-y-4">
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all p-2 lg:p-0" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all p-2 lg:p-0" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Mobile Overlay -->
+<div class="fixed inset-0 bg-black/20 z-[40] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" id="mobile-overlay"></div>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 min-h-screen pt-16 lg:pt-0">
+<div class="max-w-3xl mx-auto px-6 md:px-margin-mobile lg:px-0 py-12 lg:py-20">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 lg:mb-16">
+<div class="space-y-2">
+<span class="text-label-md text-secondary uppercase tracking-[0.2em] block">Restorative Journal</span>
+<h2 class="font-display text-4xl md:text-display text-primary leading-none">New Entry</h2>
+<p class="text-body-md md:text-body-lg text-secondary opacity-70">This space is entirely yours. Write freely.</p>
+</div>
+<div class="flex flex-col md:items-end gap-2">
+<p class="font-display text-2xl md:text-headline-md text-primary">Sunday, 2 August 2026</p>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md" href="{% url "journal_history" %}">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">history</span>
+<span>View History</span>
+</a>
+</div>
+</header>
+<!-- Journal Form -->
+<form class="space-y-12 md:space-y-16" id="journalForm">
+<!-- Entry Title -->
+<section class="reveal-section">
+<label class="text-label-sm text-secondary uppercase tracking-widest mb-4 block" for="title">Title of Entry</label>
+<input class="w-full bottom-only-input font-display text-2xl md:text-headline-lg py-3 placeholder:text-outline-variant focus:placeholder:opacity-0 transition-all" id="title" placeholder="A quiet morning..." type="text"/>
+</section>
+<!-- Mood Selector -->
+<section class="reveal-section">
+<label class="text-label-sm text-secondary uppercase tracking-widest mb-6 block">Current Resonance</label>
+<div class="flex flex-wrap gap-2 md:gap-3">
+<div class="mood-selector">
+<input class="hidden mood-chip-input" id="mood-stressed" name="mood" type="radio"/>
+<label class="flex items-center gap-2 px-4 md:px-5 py-2 rounded-full border border-outline-variant cursor-pointer text-label-md text-secondary hover:border-secondary transition-all" for="mood-stressed">
+<span class="material-symbols-outlined text-[18px]">bolt</span> Stressed
+                        </label>
+</div>
+<div class="mood-selector">
+<input class="hidden mood-chip-input" id="mood-bored" name="mood" type="radio"/>
+<label class="flex items-center gap-2 px-4 md:px-5 py-2 rounded-full border border-outline-variant cursor-pointer text-label-md text-secondary hover:border-secondary transition-all" for="mood-bored">
+<span class="material-symbols-outlined text-[18px]">sentiment_neutral</span> Bored
+                        </label>
+</div>
+<div class="mood-selector">
+<input class="hidden mood-chip-input" id="mood-calm" name="mood" type="radio"/>
+<label class="flex items-center gap-2 px-4 md:px-5 py-2 rounded-full border border-outline-variant cursor-pointer text-label-md text-secondary hover:border-secondary transition-all" for="mood-calm">
+<span class="material-symbols-outlined text-[18px]">eco</span> Calm
+                        </label>
+</div>
+<div class="mood-selector">
+<input class="hidden mood-chip-input" id="mood-happy" name="mood" type="radio"/>
+<label class="flex items-center gap-2 px-4 md:px-5 py-2 rounded-full border border-outline-variant cursor-pointer text-label-md text-secondary hover:border-secondary transition-all" for="mood-happy">
+<span class="material-symbols-outlined text-[18px]">sunny</span> Happy
+                        </label>
+</div>
+<div class="mood-selector">
+<input class="hidden mood-chip-input" id="mood-sad" name="mood" type="radio"/>
+<label class="flex items-center gap-2 px-4 md:px-5 py-2 rounded-full border border-outline-variant cursor-pointer text-label-md text-secondary hover:border-secondary transition-all" for="mood-sad">
+<span class="material-symbols-outlined text-[18px]">cloud</span> Sad
+                        </label>
+</div>
+<div class="mood-selector">
+<input class="hidden mood-chip-input" id="mood-tired" name="mood" type="radio"/>
+<label class="flex items-center gap-2 px-4 md:px-5 py-2 rounded-full border border-outline-variant cursor-pointer text-label-md text-secondary hover:border-secondary transition-all" for="mood-tired">
+<span class="material-symbols-outlined text-[18px]">bedtime</span> Tired
+                        </label>
+</div>
+</div>
+</section>
+<!-- Gratitude -->
+<section class="reveal-section">
+<label class="text-label-sm text-secondary uppercase tracking-widest mb-4 block" for="gratitude">Gratitude Reflection</label>
+<textarea class="w-full journal-textarea font-body-md text-body-lg p-4 md:p-6 focus:border-b-0 rounded-t-lg" id="gratitude" placeholder="What are three small things that brought you peace today?" rows="3"></textarea>
+</section>
+<!-- Reflection -->
+<section class="reveal-section">
+<div class="flex justify-between items-center mb-4">
+<label class="text-label-sm text-secondary uppercase tracking-widest block" for="reflection">Main Reflection</label>
+<span class="text-label-sm text-outline-variant" id="wordCounter">0 words</span>
+</div>
+<textarea class="w-full journal-textarea font-body-md text-body-lg p-4 md:p-6 focus:border-b-0 rounded-t-lg" id="reflection" placeholder="Begin writing your story here..." rows="8"></textarea>
+</section>
+<!-- Healing Intention -->
+<section class="reveal-section">
+<label class="text-label-sm text-secondary uppercase tracking-widest mb-4 block" for="intention">Healing Intention</label>
+<div class="relative">
+<div class="absolute left-0 top-0 w-1 h-full bg-on-primary-container"></div>
+<input class="w-full pl-6 py-4 bg-transparent border-none focus:ring-0 font-body-md italic text-body-lg text-primary placeholder:text-outline-variant" id="intention" placeholder="I intend to be gentle with myself today." type="text"/>
+</div>
+</section>
+<!-- Photo Upload -->
+<section class="reveal-section">
+<label class="text-label-sm text-secondary uppercase tracking-widest mb-4 block">Visual Anchor</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 md:p-12 flex flex-col items-center justify-center group cursor-pointer hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-4xl md:text-[40px] text-outline-variant group-hover:text-secondary mb-3">add_photo_alternate</span>
+<p class="text-label-md text-secondary text-center">Upload a photo that resonates with your state</p>
+<p class="text-label-sm text-outline-variant mt-1">JPEG, PNG up to 10MB</p>
+</div>
+</section>
+<!-- Submit Area -->
+<footer class="pt-8 border-t border-outline-variant flex flex-col md:flex-row md:items-center md:justify-between gap-8 pb-32">
+<div class="flex items-center gap-2 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="text-label-sm">Your journal is private and encrypted.</span>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto">
+<button class="text-label-md text-secondary hover:text-error transition-colors uppercase tracking-widest" type="button">Discard</button>
+<button class="bg-primary text-white px-8 md:px-12 py-4 rounded-lg font-label-md hover:bg-opacity-95 shadow-sm transition-all" type="submit">Save Entry</button>
+</div>
+</footer>
+</form>
+</div>
+</main>
+<!-- Subtle Background Texture -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1]" style="background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png')"></div>
+<script>
+    // Word Counter Script
+    const reflectionTextarea = document.getElementById('reflection');
+    const wordCounter = document.getElementById('wordCounter');
+
+    reflectionTextarea.addEventListener('input', () => {
+        const text = reflectionTextarea.value.trim();
+        const words = text ? text.split(/\s+/).length : 0;
+        wordCounter.textContent = `${words} word${words === 1 ? '' : 's'}`;
+    });
+
+    // Form Submit Interaction
+    document.getElementById('journalForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined animate-spin align-middle mr-2">refresh</span> Saving...';
+        
+        setTimeout(() => {
+            btn.innerHTML = '<span class="material-symbols-outlined align-middle mr-2">check</span> Saved';
+            btn.classList.replace('bg-primary', 'bg-on-primary-container');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.replace('bg-on-primary-container', 'bg-primary');
+                btn.disabled = false;
+            }, 2000);
+        }, 1500);
+    });
+
+    // Mobile Navigation Controls
+    const sidebar = document.getElementById('sidebar');
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const overlay = document.getElementById('mobile-overlay');
+
+    const toggleMenu = () => {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('overflow-hidden');
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+    closeMenu.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // Close menu on link click
+    sidebar.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 1024) toggleMenu();
+        });
+    });
+
+    // Scroll Reveal effect for editorial feel
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-section').forEach(s => {
+        s.style.opacity = '0';
+        s.style.transform = 'translateY(20px)';
+        s.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(s);
+    });
+</script>
+</body>
+</html>
