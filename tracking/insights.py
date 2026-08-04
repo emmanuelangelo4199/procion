@@ -206,8 +206,8 @@ def build_insight_page_context(insight):
                 if top_mood else
                 'Before your next meal, pause for two soft breaths and notice how you feel.'
             ),
-            'cta': 'Open Journal',
-            'url_name': 'journal',
+            'cta': 'Open Emotion',
+            'url_name': 'emotion',
         },
         {
             'icon': 'water_drop',
@@ -220,7 +220,7 @@ def build_insight_page_context(insight):
                 'Name one flavor, texture, or temperature and capture it in your next log.'
             ),
             'cta': 'Log Entry',
-            'url_name': 'journal',
+            'url_name': 'journal_new',
         },
         {
             'icon': 'edit_note',
@@ -233,7 +233,7 @@ def build_insight_page_context(insight):
                 'Your first entry is enough. Capture one mood and one sensory detail today.'
             ),
             'cta': 'Add Reflection',
-            'url_name': 'journal',
+            'url_name': 'journal_history',
         },
     ]
 

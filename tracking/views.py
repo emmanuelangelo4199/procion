@@ -61,9 +61,11 @@ def journal_history(request):
     paginator = Paginator(entries, 12)
     page = paginator.get_page(request.GET.get('page'))
 
-    return render(request, 'tracking/journal_history.html', {
+    context = {
         'entries': page,
-    })
+    }
+
+    return render(request, 'tracking/journal_history.html', context)
 
 
 @login_required

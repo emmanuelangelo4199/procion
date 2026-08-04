@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="icon" href="{% static 'image/Container.png' %}" type="icon-image">
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -77,14 +78,14 @@
                     "gutter": "24px"
             },
             "fontFamily": {
-                    "label-md": ["Manrope"],
-                    "label-sm": ["Manrope"],
-                    "display": ["EB Garamond"],
-                    "headline-md": ["EB Garamond"],
-                    "body-md": ["Manrope"],
-                    "headline-lg-mobile": ["EB Garamond"],
-                    "headline-lg": ["EB Garamond"],
-                    "body-lg": ["Manrope"]
+                "body-lg": ["Manrope", "sans-serif"],
+                "label-md": ["Manrope", "sans-serif"],
+                "headline-sm": ["EB Garamond", "serif"],
+                "headline-md": ["EB Garamond", "serif"],
+                "display-lg": ["EB Garamond", "serif"],
+                "body-md": ["Manrope", "sans-serif"],
+                "caption": ["Manrope", "sans-serif"],
+                "display-lg-mobile": ["EB Garamond", "serif"]
             },
             "fontSize": {
                     "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
@@ -144,6 +145,10 @@
 <span class="material-symbols-outlined" data-icon="group">group</span>
 <span class="font-label-md">My Circle</span>
 </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="{% url "emotion" %}">
+<span class="material-symbols-outlined" data-icon="auto_fix_high">auto_fix_high</span>
+<span class="font-label-md text-label-md">Food &amp; Mood</span>
+</a>
 <a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-[#eaefee] rounded-xl transition-all duration-200" href="#">
 <span class="material-symbols-outlined" data-icon="insights">insights</span>
 <span class="font-label-md">Progress</span>
@@ -158,9 +163,9 @@
 <!-- Mobile Header -->
 <header class="md:hidden fixed top-0 w-full bg-[#f8faf9]/80 backdrop-blur-xl z-50 px-6 h-16 flex justify-between items-center border-b border-[#eaefee]">
 <h1 class="text-2xl font-display font-bold text-primary tracking-tighter">Porcion</h1>
-<button class="p-2 text-primary" id="mobileMenuBtn">
+<a href="{% url 'journal_new' %}" class="p-2 text-primary" id="mobileMenuBtn">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
-</button>
+</a>
 </header>
 <!-- Main Content -->
 <main class="md:ml-64 pt-24 md:pt-16 min-h-screen px-6 md:px-margin-desktop pb-20">
@@ -172,10 +177,10 @@
 <h2 class="font-headline-lg text-primary text-4xl md:text-5xl">Your Journal</h2>
 <p class="font-body-md text-secondary italic opacity-80">Every entry is a step forward on your path to restoration.</p>
 </div>
-<button class="bg-primary text-white px-8 py-4 rounded-full font-label-md flex items-center space-x-2 hover:scale-[1.02] active:scale-95 transition-all w-fit shadow-lg shadow-primary/10">
+<a href="{% url 'journal_new' %}" class="bg-primary text-white px-8 py-4 rounded-full font-label-md flex items-center space-x-2 hover:scale-[1.02] active:scale-95 transition-all w-fit shadow-lg shadow-primary/10">
 <span class="material-symbols-outlined" data-icon="add">add</span>
 <span class="">New Entry</span>
-</button>
+</a>
 </section>
 <!-- Filter & Sort Bar -->
 <section class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white/50 p-2 rounded-2xl border border-surface-container-high">

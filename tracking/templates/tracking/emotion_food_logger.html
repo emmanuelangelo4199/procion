@@ -130,7 +130,7 @@
         <!-- Desktop Navigation Sidebar -->
         <aside class="hidden md:flex h-screen w-20 lg:w-72 fixed left-0 top-0 flex-col bg-sanctuary-white border-r border-soft-sage/40 py-12 px-8 z-40">
             <div class="mb-16">
-                <a href="{% url 'dashboard' %}" class="font-display-lg text-3xl text-deep-forest italic tracking-tight lg:block hidden">Porcion</a>
+                <a href="{% url 'dashboard' %}" class="text-[32px] font-display font-bold text-primary tracking-tighter">Porcion</a>
                 <a href="{% url 'dashboard' %}" class="font-display-lg text-3xl text-deep-forest italic tracking-tight lg:hidden block">P.</a>
             </div>
             <nav class="flex-1 space-y-8">
@@ -139,8 +139,12 @@
                     <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Dashboard</span>
                 </a>
                 <a class="group flex items-center gap-4 text-deep-forest font-semibold" href="{% url 'emotion' %}">
-                    <span class="material-symbols-outlined text-2xl" data-icon="edit_note">edit_note</span>
-                    <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden border-b border-deep-forest">Log Entry</span>
+                    <span class="material-symbols-outlined text-2xl" data-icon="auto_fix_high">auto_fix_high</span>
+                    <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden border-b border-deep-forest">Emotion&amp; Food Log</span>
+                </a>
+                <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="{% url 'journal_history' %}">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="edit_note">edit_note</span>
+                    <span class="font-label-md text-sm tracking-wide uppercase lg:block hidden">Journal</span>
                 </a>
                 <a class="group flex items-center gap-4 text-earth-gray hover:text-deep-forest transition-all" href="{% url 'insights' %}">
                     <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-icon="auto_graph">auto_graph</span>
