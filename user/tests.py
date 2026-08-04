@@ -15,7 +15,7 @@ class UserAuthAndProfileTests(TestCase):
         )
 
     def test_user_profile_automatically_created(self):
-        """Verify that UserProfile is automatically created via signal upon User creation."""
+        """Verify that the UserProfile is automatically created via signal upon User creation."""
         self.assertTrue(UserProfile.objects.filter(user=self.user).exists())
         self.assertEqual(self.user.profile.user, self.user)
 
@@ -25,17 +25,18 @@ class UserAuthAndProfileTests(TestCase):
         response = self.client.get(reverse('login'))
         self.assertRedirects(response, reverse('dashboard'))
 
-    def test_signup_creates_user_and_profile_and_redirects_to_dashboard(self):
-        """New signup creates User and UserProfile, logging in and redirecting to dashboard."""
+    def test_signup_creates_user_and_profile_and_redirects_to_onboarding(self):
+        """New signup creates User and UserProfile, logging in and redirecting to onboarding."""
         new_email = "newuser@example.com"
         response = self.client.post(reverse('signup'), {
             'name': 'New User',
             'email': new_email,
             'password': 'NewPassword123!',
         })
-        self.assertRedirects(response, reverse('dashboard'))
+        self.assertRedirects(response, reverse('onboarding'))
         new_user = User.objects.get(email=new_email)
         self.assertTrue(UserProfile.objects.filter(user=new_user).exists())
+
 
     def test_protected_views_require_authentication(self):
         """Unauthenticated requests to profile and onboarding should redirect to login."""
