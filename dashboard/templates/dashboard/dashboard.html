@@ -102,14 +102,14 @@
                       "margin-desktop": "64px"
               },
               "fontFamily": {
-                      "body-lg": ["Manrope"],
-                      "label-md": ["Manrope"],
-                      "headline-sm": ["Manrope"],
-                      "headline-md": ["Manrope"],
-                      "display-lg": ["Manrope"],
-                      "body-md": ["Manrope"],
-                      "caption": ["Manrope"],
-                      "display-lg-mobile": ["Manrope"]
+                "body-lg": ["Manrope", "sans-serif"],
+                "label-md": ["Manrope", "sans-serif"],
+                "headline-sm": ["EB Garamond", "serif"],
+                "headline-md": ["EB Garamond", "serif"],
+                "display-lg": ["EB Garamond", "serif"],
+                "body-md": ["Manrope", "sans-serif"],
+                "caption": ["Manrope", "sans-serif"],
+                "display-lg-mobile": ["EB Garamond", "serif"]
               },
               "fontSize": {
                       "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
@@ -130,7 +130,7 @@
   <!-- Desktop Side Navigation -->
   <aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-sanctuary-white border-r border-soft-sage py-8 px-6 z-40">
     <div class="mb-12">
-      <h1 class="font-display-lg text-headline-sm text-deep-forest italic">Porcion</h1>
+      <h1 class="text-[32px] font-display font-bold text-primary tracking-tighter">Porcion</h1>
     </div>
     <div class="mb-10">
       <p class="font-label-md text-label-md text-earth-gray uppercase mb-4 tracking-widest">Navigation</p>
@@ -148,8 +148,8 @@
           <span class="font-label-md text-label-md">Insights</span>
         </a>
         <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="{% url "emotion" %}">
-          <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
-          <span class="font-label-md text-label-md">Habits</span>
+          <span class="material-symbols-outlined" data-icon="auto_fix_high">auto_fix_high</span>
+          <span class="font-label-md text-label-md">Emotion &amp; Food</span>
         </a>
         <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-earth-gray hover:bg-soft-sage/30 transition-all duration-300" href="{% url "circle" %}">
           <span class="material-symbols-outlined" data-icon="groups">groups</span>
