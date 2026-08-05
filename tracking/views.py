@@ -71,9 +71,11 @@ def journal_history(request):
 @login_required
 def journal_detail(request, pk):
     entry = get_object_or_404(JournalEntry, pk=pk, user=request.user)
-    return render(request, 'tracking/journal_detail.html', {
+
+    context = {
         'entry': entry,
-    })
+    }
+    return render(request, 'tracking/journal_detail.html', context)
 
 
 @login_required
