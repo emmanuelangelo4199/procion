@@ -84,14 +84,14 @@
               "gutter": "24px"
             },
             "fontFamily": {
-              "label-sm": ["Manrope"],
-              "headline-lg": ["EB Garamond"],
-              "body-md": ["Manrope"],
-              "headline-md": ["EB Garamond"],
-              "headline-lg-mobile": ["EB Garamond"],
-              "body-lg": ["Manrope"],
-              "label-md": ["Manrope"],
-              "display": ["EB Garamond"]
+            "body-lg": ["Manrope", "sans-serif"],
+            "label-md": ["Manrope", "sans-serif"],
+            "headline-sm": ["EB Garamond", "serif"],
+            "headline-md": ["EB Garamond", "serif"],
+            "display-lg": ["EB Garamond", "serif"],
+            "body-md": ["Manrope", "sans-serif"],
+            "caption": ["Manrope", "sans-serif"],
+            "display-lg-mobile": ["EB Garamond", "serif"]
             },
             "fontSize": {
               "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
@@ -155,7 +155,7 @@
       id="sidebar"
     >
       <div class="mb-12 hidden lg:block">
-        <h1 class="font-display text-display text-primary leading-none">Porcion</h1>
+        <h1 class="text-[32px] font-display font-bold text-primary tracking-tighter">Porcion</h1>
         <p class="font-body-md text-on-surface-variant italic mt-1">
           Restorative Wellness
         </p>
@@ -204,7 +204,7 @@
           href="{% url "emotion" %}"
         >
           <span class="material-symbols-outlined">auto_fix_high</span>
-          <span class="font-body-md">Habits</span>
+          <span class="font-body-md">Emotion &amp; Food</span>
         </a>
         <a
           class="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all duration-200 text-primary font-bold bg-surface-container border-r-4 border-primary"
