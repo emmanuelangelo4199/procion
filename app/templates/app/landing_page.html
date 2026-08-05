@@ -204,7 +204,8 @@
                     <h4 class="font-bold text-on-surface mb-6">Platform</h4>
                     <ul class="space-y-4 text-sm text-on-surface-variant">
                     <li><a class="hover:text-primary transition-colors" href="{% url 'dashboard' %}">Micro-Habits</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="{% url 'journal' %}">Emotion Logging</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'emotion' %}">Emotion Logging</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'journal_history' %}">Journal</a></li>
                     <li><a class="hover:text-primary transition-colors" href="{% url 'circle' %}">Circles</a></li>
                     <li><a class="hover:text-primary transition-colors" href="{% url 'insights' %}">Progress Insights</a></li>
                     </ul>
@@ -242,7 +243,7 @@
                 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                 <span class="text-[10px] font-bold mt-1">Home</span>
             </a>
-            <a href="{% url 'journal' %}" class="flex flex-col items-center justify-center text-on-surface-variant">
+            <a href="{% url 'emotion' %}" class="flex flex-col items-center justify-center text-on-surface-variant">
                 <span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
                 <span class="text-[10px] font-medium mt-1">Log</span>
             </a>
