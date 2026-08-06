@@ -31,3 +31,8 @@ npm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+
+# Static & media
+staticfiles/
+media/
