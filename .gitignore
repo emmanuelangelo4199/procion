@@ -35,4 +35,4 @@ Thumbs.db
 
 # Static & media
 staticfiles/
-media/
+media/db.sqlite3
